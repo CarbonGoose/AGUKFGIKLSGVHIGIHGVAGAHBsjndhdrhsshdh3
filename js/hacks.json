@@ -1,0 +1,113 @@
+[
+  {
+    "id": "sunshine",
+    "name": "Sunshine Hacks",
+    "description": "Velkommen til dopamine land!",
+    "icon": "img/sunshine.png",
+    "style": {
+      "background": "#fff9e5",
+      "card": "#fff3c4",
+      "accent": "#f6a400",
+      "button": "#ffe278",
+      "buttonText": "#1b1f40",
+      "shadow": "rgba(249, 160, 63, 0.3)",
+      "title": "#e57c00",
+      "text": "#1b1f40"
+    },
+    "hacks": [
+      {
+        "title": "Glædesstarteren",
+        "description": "Begynd med det rare – ikke det svære.",
+        "howto": "Spring det hårde over og start med en del af opgaven, du glæder dig til: 🖊️ Den kreative del, 📸 en chill brainstorm, eller ✅ noget, du hurtigt kan afslutte. Når du starter med glæde, tænder du hjernens flow – og det trækker resten med."
+      },
+      {
+        "title": "Venlig To-do Liste",
+        "description": "En blid to-do der taler til dig som din egen bedste ven.",
+        "howto": "Skriv din liste som et kærligt brev: “Hej skat, her er nogle ting du kan prøve i dag 💛” Brug emojis, farver og varme ord. Undgå “DU SKAL NU”-tonen – medmindre det virker for dig, så tjek Mørke-Hacks 💀",
+        "extra": {
+          "type": "checklist",
+          "placeholder": "Skriv din to-do her..."
+        }
+      },
+      {
+        "title": "Belønningsritualet",
+        "description": "Opgaver → belønning → dopamine fest",
+        "howto": "Læg små belønninger efter hvert trin: 🥤 Iskaffe, 💃 dans, 🍪 snack, 📱 en reel. Gør det til en fejring – ikke en straf!"
+      },
+      {
+        "title": "Aesthetic Workspace Mode",
+        "description": "Skab et sted din hjerne vil blive i.",
+        "howto": "Lav et hyggeligt setup-ritual: 🕯️ Tænd lys, 🎥 sæt en “study with me” video på, 🛋️ læg plaid frem, 🎶 afspil lo-fi. Gør rummet indbydende, og hjernen vil følge trop.",
+        "extra": {
+          "type": "notepad",
+          "placeholder": "Hvordan vil du gøre din plads hyggelig i dag?"
+        }
+      },
+      {
+        "title": "Visual Victory Wall",
+        "description": "Dokumentér dine sejre og opbyg digital selvtillid",
+        "howto": "Lav en mappe med screenshots, billeder eller citater. Hver gang du lykkes – læg det derind. Du bygger dit eget bevis på, hvor sej du faktisk er 💪"
+      },
+      {
+        "title": "Fremtidsdigget",
+        "description": "Giv kærlighed til dit fremtidige jeg",
+        "howto": "Skriv en kort besked til i morgen: “Tak fordi du gjorde det i dag. Du hjalp os fremad.” Det tager 30 sekunder – og føles som magi 🥹",
+        "extra": {
+          "type": "notepad",
+          "placeholder": "Skriv en besked til dig selv i morgen..."
+        }
+      },
+      {
+        "title": "Gør det nydelsesfuldt-strategien",
+        "description": "Gør processen så rar, at du glemmer det er “arbejde”.",
+        "howto": "Gør noterne pæne, læs med snacks, brug farver og langsom nydelse. Når arbejde føles som nørkle-glæde, bliver det til noget, du faktisk glæder dig til."
+      }
+    ]
+  }
+  
+  ,
+    {
+      "id": "chaos",
+      "name": "Chaos Goblin",
+      "description": "Der er et system... måske. Who cares? LET’S GOOO!",
+      "icon": "img/chaos.png",
+      "color": "#FFCCE8",
+      "hacks": [
+        {
+          "title": "Goblin burst",
+          "description": "Sæt en timer og løb derudaf i kaos!"
+        },
+        {
+          "title": "Random wheel",
+          "description": "Spind et hjul og gør det, den siger"
+        }
+      ]
+    },
+    {
+      "id": "dark",
+      "name": "Dark Mode Hacks",
+      "description": "Eksistentiel panik og mortalitet som brændstof... 👀",
+      "icon": "img/dark.png",
+      "style": "style-hack-template.css",
+      "hacks": [
+        {
+          "title": "Doom Timer",
+          "description": "Sæt en nedtælling som om du kun har 10 minutter tilbage på Jorden. Go."
+        },
+        {
+          "title": "Gravstenen",
+          "description": "Skriv dit navn og en opgave på en imaginær gravsten. Nu gør du den færdig for at hædre den faldne version af dig selv."
+        },
+        {
+          "title": "Mortality Motivator",
+          "description": "Se på uret og husk: tiden går. Brug den. NU."
+        },
+        {
+          "title": "Katastrofe-visualisering",
+          "description": "Forestil dig konsekvensen af at *ikke* handle – og brug det som benzin. 💣"
+        }
+      ]
+    }
+        
+  ]
+  
