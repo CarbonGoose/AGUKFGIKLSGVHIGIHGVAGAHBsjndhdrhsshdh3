@@ -1,9 +1,12 @@
 async function loadHackPage() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
-  const res = await fetch("hacks.json");
+  const res = await fetch("../hacks.json");
   const data = await res.json();
   const category = data.find((c) => c.id === id);
+  console.log("🧠 URL id:", id);
+console.log("🧠 Fundet kategori:", category);
+
 
   if (!category) {
     document.body.innerHTML = "<h2>Ups! Kategori ikke fundet.</h2>";
@@ -29,7 +32,7 @@ async function loadHackPage() {
     el.className = "hack-card";
 
     const howto = hack.howto
-      ? `<div class="hack-howto"><strong>Sådan gør du:</strong><br>${hack.howto.replace(/\n/g, '<br>')}</div>`
+      ? `<div class="hack-howto"><strong>How to:</strong><br>${hack.howto.replace(/\n/g, '<br>')}</div>`
       : "";
 
     el.innerHTML = `
@@ -40,7 +43,7 @@ async function loadHackPage() {
           ${howto}
           ${generateExtraContent(hack.extra)}
         </div>
-        <button>Gem Hack</button>
+        <button>Save Hack</button>
       </div>
     `;
 
@@ -151,7 +154,7 @@ function generateExtraContent(extra) {
     return `
       <div class="checklist" data-id="${id}">
         <input type="text" placeholder="${extra.placeholder}" class="new-task-input" />
-        <button class="add-task">Tilføj</button>
+        <button class="add-task">Add</button>
         <ul class="task-list"></ul>
       </div>
     `;
@@ -173,4 +176,10 @@ function applyCategoryStyle(style) {
   root.style.setProperty("--text", style.text);
 }
 
-window.onload = loadHackPage;
+document.addEventListener("DOMContentLoaded", loadHackPage);
+
+
+
+console.log("🧠 ID fra URL:", id);
+console.log("📦 Data fra JSON:", data);
+console.log("🎯 Fundet kategori:", category);
