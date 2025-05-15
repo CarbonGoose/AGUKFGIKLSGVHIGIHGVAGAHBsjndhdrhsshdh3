@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Hack Your Brain</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container py-5">
+<!-- 👤 Brugerinfo + XP -->
+<section class="profile-header text-center mb-5 p-4">
+  <div class="profile-card rounded-4 shadow p-4 position-relative">
+    <button 
+      class="btn edit-profile-btn position-absolute top-0 end-0"
+      data-bs-toggle="modal"
+      data-bs-target="#editAvatarModal">
+      Rediger profil
+    </button>
+    <div class="avatar-wrapper mx-auto mb-3">
+      <img src="img/ikon.png" alt="Brugeravatar" class="rounded-circle avatar-img">
+    </div>
+    <h2 id="profile-username" class="fw-bold">Brugernavn</h2>
+    <div class="level-info mb-2">
+      <strong>Niveau <span id="user-level">6</span></strong> — <span id="xp-text">1200 XP ud af 1500 XP</span>
+    </div>
+    <div class="progress rounded-pill" style="height: 14px;">
+      <div class="progress-bar bg-gradient-orange" id="xp-bar" role="progressbar" style="width: 80%;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 💾 Yndlingshacks -->
+<section class="mb-5">
+  <h3>Yndlingshacks</h3>
+  <div id="fav-hacks" class="d-flex flex-wrap gap-3">
+    <!-- Hack-kort indsættes her -->
+  </div>
+</section>
+
+<!-- 🧰 Værktøjer -->
+<section class="mb-5">
+  <h3>Yndlingsværktøjer</h3>
+  <div id="fav-tools" class="d-flex gap-4">
+    <div class="tool-card">Pomodoro</div>
+    <div class="tool-card">Noter</div>
+    <div class="tool-card">Habit Tracker</div>
+  </div>
+</section>
+
+<!-- 🏆 Badges -->
+<section class="mb-5">
+  <h3>Achievements</h3>
+  <div id="badges" class="d-flex flex-wrap gap-3">
+    <img src="img/badge1.png" alt="Badge 1" width="64">
+    <img src="img/badge2.png" alt="Badge 2" width="64" class="locked">
+    <img src="img/badge3.png" alt="Badge 3" width="64" class="locked">
+  </div>
+</section>
+
+<!-- 📝 Dagens intention -->
+<section class="mb-5">
+  <h3>Dagens intention</h3>
+  <textarea class="form-control" id="daily-note" rows="2" placeholder="Skriv din fokus i dag..."></textarea>
+</section>
+
+<!-- 📈 Statistik -->
+<section class="mb-5">
+  <h3>Statistik</h3>
+  <ul>
+    <li>Gemte hacks: <span id="stat-hacks">4</span></li>
+    <li>Værktøjer brugt: <span id="stat-tools">2</span></li>
+    <li>Senest aktiv: <span id="stat-last">13. maj</span></li>
+  </ul>
+</section>
+
+<!-- 💡 Quiz-resultat -->
+<section class="mb-5">
+  <h3>Din hjernetype</h3>
+  <p id="brain-type">Sunshine Goblin ☀️</p>
+</section>
+
+<!-- 🎯 Mål -->
+<section class="mb-5">
+  <h3>Dine mål</h3>
+  <ul>
+    <li>Få 500 XP denne uge <progress value="300" max="500"></progress></li>
+    <li>Gem 3 nye hacks <progress value="1" max="3"></progress></li>
+  </ul>
+</section>
+
+<!-- 🎭 Titelvalg -->
+<section class="mb-5">
+  <h3>Din rolle</h3>
+  <select class="form-select w-auto">
+    <option>Chaos Goblin</option>
+    <option selected>Sunshine Queen</option>
+    <option>Gentle Hacker</option>
+  </select>
+</section>
+
+<!-- 🎨 Tema + Musik -->
+<section class="mb-5">
+  <h3>Personlig stil</h3>
+  <label for="theme-select">Farvetema:</label>
+  <select id="theme-select" class="form-select w-auto d-inline-block ms-2">
+    <option>Standard</option>
+    <option>Solrig</option>
+    <option>Mørk</option>
+    <option>Pastel</option>
+  </select>
+  <div class="form-check mt-2">
+    <input type="checkbox" class="form-check-input" id="bg-sound">
+    <label class="form-check-label" for="bg-sound">Afspil baggrundsmusik</label>
+  </div>
+</section>
+
+<!-- 🫽 Nulstil -->
+<section class="text-center">
+  <button class="btn btn-danger" id="reset-profile">Nulstil hele profilen</button>
+</section>
+</div>
+
+<!-- Rediger avatar modal -->
+<div class="modal fade" id="editAvatarModal" tabindex="-1" aria-labelledby="editAvatarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editAvatarLabel">Vælg din avatar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <img src="img/dark2.png" class="select-avatar" data-avatar="img/dark2.png" width="80">
+          <img src="img/hjerne6.png" class="select-avatar" data-avatar="img/hjerne6.png" width="80">
+          <img src="img/ikon.png" class="select-avatar" data-avatar="img/ikon.png" width="80">
+          <img src="img/logo.png" class="select-avatar" data-avatar="img/logo.png" width="80">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+<script src="profile.js"></script>
+<script src="brain.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => insertNavbar("frontpage")); // eller tools, quiz osv.
+</script>
+
+
+
+
+
+</body>
+</html>
