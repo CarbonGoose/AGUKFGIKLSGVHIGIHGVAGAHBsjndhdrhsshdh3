@@ -179,6 +179,14 @@ async function loadHackPage() {
       localStorage.setItem(saveKey, JSON.stringify(updatedTitles));
     });
 
+    // === INDSÆT XP-POPUP HER ===
+    const doneBtn = el.querySelector(".done-btn");
+    doneBtn.addEventListener("click", () => {
+      showNotePopup(hack, category); // Viser popup, sender hack + kategori-objekt
+    });
+
+    // === ===
+
     if (hack.extra && hack.extra.type === "checklist") {
       const checklist = el.querySelector(".checklist");
       const input = checklist.querySelector(".new-task-input");
@@ -232,6 +240,60 @@ async function loadHackPage() {
     }
   });
 }
+
+// === POPUP OG XP-FUNKTIONALITET ===
+
+function showNotePopup(hack, category) {
+  const popup = document.createElement("div");
+  popup.className = "popup-overlay";
+  popup.innerHTML = `
+    <div class="popup-box">
+      <button class="close-popup" title="Luk">✖</button>
+      <p>How did it go? What are your thoughts?</p>
+      <textarea placeholder="Write your thoughts..."></textarea>
+      <div class="popup-actions">
+        <button class="confirm-note btn btn-success">✅</button>
+        <button class="skip-note btn btn-secondary">Skip</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  // Luk popup hvis X trykkes
+  popup.querySelector(".close-popup").addEventListener("click", () => popup.remove());
+
+  // Event listeners til knapperne
+  popup.querySelector(".confirm-note").addEventListener("click", () => handleXPConfirm(hack, category.name));
+  popup.querySelector(".skip-note").addEventListener("click", () => handleXPConfirm(hack, category.name, true));
+}
+
+function handleXPConfirm(hack, categoryName, skip = false) {
+  const popup = document.querySelector(".popup-overlay");
+  const note = skip ? "" : (popup.querySelector("textarea").value.trim());
+  const username = localStorage.getItem("username") || "User";
+  const shortCategory = categoryName.split(" ")[0]; // fx "Chaos Goblin" → "Chaos"
+
+  const logEntry = {
+    date: new Date().toLocaleDateString("da-DK"),
+    displayName: `${shortCategory} ${username}`,
+    hackTitle: hack.title,
+    note: note,
+    xp: 5
+  };
+
+  const logs = JSON.parse(localStorage.getItem("xpLogs") || "[]");
+  logs.push(logEntry);
+  localStorage.setItem("xpLogs", JSON.stringify(logs));
+
+  // Bonus: Gem XP
+  let currentXP = parseInt(localStorage.getItem("xp") || "0");
+  localStorage.setItem("xp", currentXP + 5);
+
+  popup.remove();
+  showConfetti(); // findes allerede!
+}
+
+// === ========== ===
 
 function showConfetti(target) {
   const container = document.createElement("div");
