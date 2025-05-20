@@ -6,10 +6,23 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--background, #fffef8);
   color: var(--text, #1b1f40);
+  position: relative;
 }
-
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -10;
+  opacity: 0.3; /* juster hvis ønsket */
+}
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -37,11 +50,9 @@ body {
   flex: 1 1 300px;
   position: relative;
 }
-
 .icon-wrapper {
   position: relative;
 }
-
 .icon-wrapper .icon {
   width: clamp(200px, 32vw, 320px);
   height: auto;
@@ -49,7 +60,6 @@ body {
   z-index: 2;
   position: relative;
 }
-
 .icon-wrapper .profile-badge {
   position: absolute;
   top: 12%;
@@ -63,12 +73,30 @@ body {
   z-index: 1;
   box-shadow: 0 0 10px var(--shadow, rgba(0, 0, 0, 0.1));
 }
-
 .profile-badge img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+}
+.icon-wrapper.layered {
+  position: relative;
+  width: fit-content;
+  display: inline-block;
+}
+.icon-wrapper.layered .icon {
+  z-index: 2;
+}
+.icon-wrapper.layered .vertical-progress {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
 }
 
 /* ========== PROGRESS BAR ========== */
@@ -78,28 +106,26 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-
 .vertical-progress .progress-bar {
   width: 16px;
-  height: 160px;
+  height: clamp(200px, 32vw, 320px);
   background: #eaeaea;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
-
 .vertical-progress .progress-fill {
   width: 100%;
   height: 0%;
   background: var(--accent, #999);
   transition: height 0.6s ease;
 }
-
 #progress-text {
   font-size: 0.95rem;
   text-align: center;
 }
 
-/*HACK MAIN*/
+/* HACK MAIN */
 .hack-main {
   background-color: var(--background);
 }
@@ -108,13 +134,11 @@ body {
 .hack-right {
   flex: 1 1 300px;
 }
-
 .hack-right h1 {
   font-size: 2.6rem;
   margin-bottom: 0.3rem;
   color: var(--title, #1b1f40);
 }
-
 .hack-right p {
   font-size: 1.1rem;
   color: var(--text, #1b1f40);
@@ -123,9 +147,8 @@ body {
 
 /* ========== HACK LIST ========== */
 .hack-list {
-  background-color: var(--background, #fffef8);
+  background-color: var(--background);
 }
-
 .hack-list .container {
   display: flex;
   flex-direction: column;
@@ -135,7 +158,11 @@ body {
   margin: 0 auto;
 }
 
+/* ========== HACK CARD ========== */
 .hack-card {
+  position: relative;
+  overflow: visible;
+  padding-top: 2.8rem;
   background-color: var(--card, #ffffff);
   box-shadow: 4px 4px 0 var(--shadow, #ddd);
   padding: 1.5rem 2rem;
@@ -144,27 +171,23 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-left: 6px solid var(--accent, #f6a400);
+  border-left: 8px solid var(--accent, #f6a400);
 }
-
 .hack-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 16px var(--shadow, rgba(0, 0, 0, 0.1));
 }
-
 .hack-card h2 {
   margin-top: 0;
   font-size: 1.6rem;
   color: var(--accent, #1b1f40);
 }
-
 .hack-card p {
   font-size: 1.1rem;
   margin: 0.5rem 0 1rem;
   line-height: 1.5;
   color: var(--text, #1b1f40);
 }
-
 .hack-card button {
   background-color: var(--button, #eee);
   color: var(--buttonText, #000);
@@ -178,34 +201,146 @@ body {
   transition: background-color 0.2s ease-in-out;
   align-self: flex-start;
 }
-
 .hack-card button:hover {
   background-color: var(--accent, #ddd);
   color: var(--text, #000);
 }
 
-/*DROP DOWN */
+/* HACK EXTRA GRID & VIDEO */
+.hack-extra-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.hack-extra-grid .left,
+.hack-extra-grid .right {
+  flex: 1 1 100%;
+}
+@media (min-width: 768px) {
+  .hack-extra-grid .left {
+    flex: 1 1 60%;
+  }
+  .hack-extra-grid .right {
+    flex: 1 1 35%;
+  }
+}
+.hack-extra-grid video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* HACK-EXTRA CONTAINER */
+.hack-extra {
+  display: none;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-top: 1px solid var(--shadow);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+.hack-extra.open {
+  display: block;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  animation: fadeInHack 0.3s ease-in-out;
+}
+@keyframes fadeInHack {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* VIDEO WRAPPER */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+.video-wrapper.collapsed {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.video-wrapper.collapsed video {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+.big-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  padding: 0;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  z-index: 5;
+}
+.big-play-icon {
+  width: 100%;
+  height: 100%;
+}
+.play-bg {
+  fill: var(--button);
+}
+.play-arrow {
+  fill: var(--buttonText);
+}
+
+/* "DID IT" KNAP / XP KNAP */
+.hack-footer {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--shadow);
+  display: flex;
+  justify-content: flex-end;
+}
+.done-btn {
+  padding: 0.7rem 1.4rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--buttonText, #1b1f40);
+  background-color: var(--button, #ffe278);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px var(--accent, #f6a400);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.done-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 8px var(--accent, #f6a400);
+}
+
+/* DROP DOWN */
 .hack-header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.hack-extra {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.3s ease;
-  padding-left: 0.5rem;
-  border-top: 1px solid var(--shadow);
-}
-.hack-extra.open {
-  max-height: 500px;
-  opacity: 1;
-  padding-top: 1rem;
-  margin-top: 1rem;
-}
-
+/* TEXTAREA */
 textarea {
   width: 100%;
   min-height: 100px;
@@ -218,12 +353,13 @@ textarea {
   resize: vertical;
 }
 
+/* HOWTO BOX */
 .hack-howto {
   background: #fffdf6bc;
   padding: 1.2rem 1.5rem;
   border-radius: 16px;
   border: 1px solid var(--shadow);
-  margin-top: 1.2rem;
+  margin-top: 0;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
@@ -231,7 +367,6 @@ textarea {
   width: 100%;
   box-sizing: border-box;
 }
-
 .hack-howto strong {
   display: block;
   font-size: 1.05rem;
@@ -239,16 +374,14 @@ textarea {
   margin-bottom: 0.5rem;
 }
 
-
-/*=====CHECKLISTE======*/
+/* =====CHECKLIST====== */
 .checklist {
   background: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   border-radius: 12px;
   border: 1px solid var(--shadow);
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
-
 .new-task-input {
   padding: 0.4rem 0.8rem;
   border-radius: 8px;
@@ -256,7 +389,6 @@ textarea {
   font-size: 0.95rem;
   margin-right: 0.5rem;
 }
-
 .add-task {
   padding: 0.4rem 0.9rem;
   border: none;
@@ -267,13 +399,11 @@ textarea {
   font-size: 0.9rem;
   font-weight: bold;
 }
-
 .task-list {
   list-style: none;
   padding-left: 0;
   margin-top: 1rem;
 }
-
 .task-list li {
   display: flex;
   align-items: center;
@@ -284,17 +414,18 @@ textarea {
   margin-bottom: 0.5rem;
   border: 1px solid var(--shadow);
 }
-
 .task-list li label {
   flex-grow: 1;
   font-size: 0.95rem;
   cursor: pointer;
 }
-
 .task-list input[type="checkbox"] {
   margin-right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--accent);
+  cursor: pointer;
 }
-
 .delete-task {
   background: transparent;
   border: none;
@@ -303,22 +434,9 @@ textarea {
   cursor: pointer;
   padding: 0 0.3rem;
 }
-
 .delete-task:hover {
   color: red;
 }
-
-
-/* ... eksisterende styles ... */
-
-.task-list input[type="checkbox"] {
-  margin-right: 0.5rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  accent-color: var(--accent);
-  cursor: pointer;
-}
-
 .task-list li.completed label {
   text-decoration: line-through;
   opacity: 0.6;
@@ -335,7 +453,6 @@ textarea {
   z-index: 9999;
   overflow: hidden;
 }
-
 .confetti-piece {
   position: absolute;
   width: 10px;
@@ -344,7 +461,6 @@ textarea {
   opacity: 0.8;
   animation: confetti-fall 1.2s ease-out forwards;
 }
-
 @keyframes confetti-fall {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -356,6 +472,73 @@ textarea {
   }
 }
 
+/* ========== SAVE HACK TAG ========== */
+.save-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.2s ease;
+}
+.heart-icon {
+  width: 42px;
+  height: auto;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+.save-tag:hover .heart-icon {
+  transform: scale(1.08);
+}
+
+/* "I DID IT" knap / Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.popup-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+.popup-box textarea {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+.close-popup:hover {
+  color: #d00;
+}
 
 /* ========== FOOTER ========== */
 .footer {
@@ -363,7 +546,6 @@ textarea {
   padding: 2rem;
   background-color: transparent;
 }
-
 .toolbox-link {
   display: inline-block;
   background: var(--button, #eee);
@@ -374,7 +556,6 @@ textarea {
   color: var(--buttonText, #000);
   box-shadow: 2px 4px 0 var(--shadow, #ccc);
 }
-
 .toolbox-link:hover {
   background-color: var(--accent, #ddd);
   color: var(--text, #000);
@@ -382,41 +563,29 @@ textarea {
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
-  .hack-header-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hack-left {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .icon-wrapper .profile-badge {
-    top: 14%;
-    left: 20%;
-    width: 50px;
-    height: 50px;
-  }
-
   .vertical-progress {
+    flex-direction: column;
+  }
+  .vertical-progress .progress-bar {
+    width: 16px;
+    height: clamp(160px, 60vw, 240px);
+  }
+  .hack-left {
     flex-direction: row;
     gap: 1rem;
+    align-items: center;
   }
-
-  .vertical-progress .progress-bar {
-    width: 100px;
-    height: 14px;
+  .icon-wrapper.layered {
+    display: flex;
+    align-items: center;
   }
-
+  .hack-right {
+    text-align: center;
+  }
   .hack-right h1 {
     font-size: 2.2rem;
   }
-}
-
-@media (min-width: 768px) {
   .hack-list .container {
-    grid-template-columns: 1fr 1fr;
+    padding-top: 1rem;
   }
 }
