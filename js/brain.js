@@ -1,5 +1,26 @@
 // === brain.js ===
 
+// Heart Save System 💖
+const saveKey = "savedHacks";
+
+window.isHackSaved = function(title) {
+  const saved = JSON.parse(localStorage.getItem(saveKey)) || [];
+  return saved.includes(title);
+};
+
+window.toggleHackSave = function(title) {
+  let saved = JSON.parse(localStorage.getItem(saveKey)) || [];
+
+  if (saved.includes(title)) {
+    saved = saved.filter(t => t !== title);
+  } else {
+    saved.push(title);
+  }
+
+  localStorage.setItem(saveKey, JSON.stringify(saved));
+  return saved.includes(title);
+};
+
 function insertNavbar(activePage = "") {
   const username = localStorage.getItem("username");
   const avatar = localStorage.getItem("avatar") || "img/ikon.png";
