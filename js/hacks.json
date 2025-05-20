@@ -13,17 +13,21 @@
       "shadow": "rgba(249, 160, 63, 0.3)",
       "title": "#e57c00",
       "text": "#1b1f40"
+      
     },
 "hacks": [
   {
     "title": "Joy-Starter",
     "description": "Start with the fun part – not the hard one.",
-    "howto": "Skip the struggle and begin with a part of the task you’re excited about: 🖊️ The creative bit, 📸 a chill brainstorm, or ✅ something you can finish quickly. When you start with joy, your brain kicks into flow – and pulls the rest with it."
+    "howto": "Skip the struggle and begin with a part of the task you’re excited about: 🖊️ The creative bit, 📸 a chill brainstorm, or ✅ something you can finish quickly. When you start with joy, your brain kicks into flow – and pulls the rest with it.",
+    "video": "img/placeholder.mp4"
   },
+  
   {
     "title": "Gentle To-do List",
     "description": "A soft to-do list that speaks to you like your own best friend.",
     "howto": "Write your list like a loving letter: 'Hey darling, here are some things you could try today 💛' Use emojis, colors, and kind words. Avoid the 'YOU MUST NOW'-tone – unless that works for you, then check out the Dark Hacks 💀",
+    "video": "img/placeholder.mp4",
     "extra": {
       "type": "checklist",
       "placeholder": "Write your to-do here..."
