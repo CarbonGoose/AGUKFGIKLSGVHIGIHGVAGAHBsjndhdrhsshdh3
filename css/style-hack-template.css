@@ -30,120 +30,140 @@ body::before {
 }
 
 /* ========== HEADER STRUCTURE ========== */
+
+.hack-headercolor {
+  background-image: var(--backgroundImage, none);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid var(--shadow, #eee);
+}
+
+
 .hack-header-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
   background-color: var(--heroBackground, var(--card, #fdf5dd));
-  border-bottom: 2px solid var(--shadow, #eee);
 }
 
-/* ========== LEFT: Icon + Progress ========== */
-.hack-left {
+
+/* === LEFT SIDE: progressbar + icon === */
+.hack-left-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 2rem;
-  flex: 1 1 300px;
-  position: relative;
-}
-.icon-wrapper {
-  position: relative;
-}
-.icon-wrapper .icon {
-  width: clamp(200px, 32vw, 320px);
-  height: auto;
-  border-radius: 12px;
-  z-index: 2;
-  position: relative;
-}
-.icon-wrapper .profile-badge {
-  position: absolute;
-  top: 12%;
-  left: 12%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid var(--accent, #ccc);
-  z-index: 1;
-  box-shadow: 0 0 10px var(--shadow, rgba(0, 0, 0, 0.1));
-}
-.profile-badge img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.icon-wrapper.layered {
-  position: relative;
-  width: fit-content;
-  display: inline-block;
-}
-.icon-wrapper.layered .icon {
-  z-index: 2;
-}
-.icon-wrapper.layered .vertical-progress {
-  position: absolute;
-  left: -30px;
-  top: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 0;
+  flex: 1 1 380px;
 }
 
-/* ========== PROGRESS BAR ========== */
+/* === PROGRESS BAR === */
 .vertical-progress {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 0.1rem;
 }
+
 .vertical-progress .progress-bar {
   width: 16px;
-  height: clamp(200px, 32vw, 320px);
-  background: #eaeaea;
+  height: 191px;
+  background-color: var(--progressBg, #fafafa);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
+
 .vertical-progress .progress-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 0%;
-  background: var(--accent, #999);
+  background: var(--accent, #f6a400);
   transition: height 0.6s ease;
+  border-radius: 0 0 10px 10px;
 }
+
 #progress-text {
   font-size: 0.95rem;
+  font-weight: 500;
   text-align: center;
 }
 
-/* HACK MAIN */
-.hack-main {
-  background-color: var(--background);
+/* === CATEGORY ICON + PROFILE === */
+.icon-wrapper {
+  position: relative;
+  width: 220px;
+  height: auto;
 }
 
-/* ========== RIGHT: Title + Text ========== */
+.icon-wrapper .icon {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.profile-badge {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  /*Delete?    background: var(--progressBg);*/
+  box-shadow: 0 0 10px var(--accent);
+  z-index: 2;
+}
+
+.profile-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === RIGHT SIDE: Text === */
 .hack-right {
-  flex: 1 1 300px;
+  flex: 1 1 400px;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 3rem;
 }
+
 .hack-right h1 {
-  font-size: 2.6rem;
-  margin-bottom: 0.3rem;
-  color: var(--title, #1b1f40);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--title);
+  margin: 0;
 }
+
 .hack-right p {
-  font-size: 1.1rem;
-  color: var(--text, #1b1f40);
+  font-size: 1.5rem;
+  color: var(--text);
   opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+  margin-left: 0.3rem;
 }
+
+
+
+
+
+
+
 
 /* ========== HACK LIST ========== */
 .hack-list {
@@ -205,6 +225,7 @@ body::before {
   background-color: var(--accent, #ddd);
   color: var(--text, #000);
 }
+
 
 /* HACK EXTRA GRID & VIDEO */
 .hack-extra-grid {
@@ -281,6 +302,27 @@ body::before {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   display: block;
 }
+
+
+video:fullscreen,
+video:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.hack-video:fullscreen {
+  max-height: none !important;
+}
+
+.video-wrapper:fullscreen,
+.video-inner-wrapper:fullscreen {
+  max-height: none !important;
+}
+
+
+
+
 .big-play {
   position: absolute;
   top: 50%;
@@ -355,14 +397,13 @@ textarea {
 
 /* HOWTO BOX */
 .hack-howto {
-  background: #fffdf6bc;
-  padding: 1.2rem 1.5rem;
+  background: var(--howtoBg, #fffdf6bc);
+  padding: 1.2rem 1.5rem 1.5rem 1.2rem;
   border-radius: 16px;
   border: 1px solid var(--shadow);
-  margin-top: 0;
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text);
+  color: var(--howtoText, #1b1f40);
   box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
   width: 100%;
   box-sizing: border-box;
@@ -371,7 +412,7 @@ textarea {
   display: block;
   font-size: 1.05rem;
   color: var(--accent);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* =====CHECKLIST====== */
@@ -483,13 +524,15 @@ textarea {
   cursor: pointer;
   z-index: 3;
   transition: background 0.2s ease;
+  
+  
 }
 .heart-icon {
   width: 42px;
   height: auto;
   transition: transform 0.2s ease;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
 }
+
 .save-tag:hover .heart-icon {
   transform: scale(1.08);
 }
@@ -562,30 +605,61 @@ textarea {
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .vertical-progress {
-    flex-direction: column;
-  }
-  .vertical-progress .progress-bar {
-    width: 16px;
-    height: clamp(160px, 60vw, 240px);
-  }
-  .hack-left {
-    flex-direction: row;
-    gap: 1rem;
+
+/*MOBIL*/
+@media (max-width: 859px) {
+  .hack-header-container {
+
     align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
-  .icon-wrapper.layered {
+
+  .hack-left-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
   }
-  .hack-right {
+
+.hack-right {
     text-align: center;
-  }
-  .hack-right h1 {
-    font-size: 2.2rem;
-  }
-  .hack-list .container {
-    padding-top: 1rem;
-  }
+    margin: 0 auto;
 }
+ }
+/* === Pomodoro inside Hacks === */
+
+.hack-card .pomodoro-btn {
+
+  background-color: #ff89bb !important;
+  color: white !important;
+  border-radius: 20px;
+  padding: 0.2rem 1.2rem;
+  font-weight: bold;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(60, 10, 114, 0.464);
+  margin-left: 45px;
+}
+
+.hack-card .pomodoro-settings-popup button {
+  background-color: #ff89bb;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.2rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.hack-card .pomodoro-btn:hover {
+  background-color: #ff6ca6 !important;
+  transform: scale(1.05);
+}
+
