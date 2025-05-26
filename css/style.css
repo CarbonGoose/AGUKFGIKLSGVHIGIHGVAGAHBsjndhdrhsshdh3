@@ -12,9 +12,7 @@ body {
 
 
 
-
-
-/* 🧭 NAVIGATION */
+/*============================ 🧭 NAVIGATION ============================*/
 .navbar {
   background-color: rgba(255, 255, 255, 0.7);
   border-bottom: 2px solid #eaeaea;
@@ -78,7 +76,7 @@ body {
 
 
 
-
+/*============================ FRONTPAGE ============================*/
 
 /* 🎯 HERO-SECTION */
 .hero-section {
@@ -217,9 +215,6 @@ body {
 }
 
 
-
-
-
 /* 🔘 QUIZ-KNAPPER */
 .quiz-buttons .btn {
   margin: 0.5rem;
@@ -240,10 +235,6 @@ body {
   background-color: #7ecfa9;
   color: #1b1f40;
 }
-
-
-
-
 
 
 
@@ -284,6 +275,7 @@ body {
 .categories {
   background-color: #fffdfb;
   padding: 6rem 2rem;
+  border-radius: 20px;
   border-top: 2px solid #f0e9e2;
 }
 
@@ -422,7 +414,7 @@ body {
 
 
 
-/*====LOGIN====*/
+/*============================ LOGIN PAGE ============================*/
 /* 🔐 LOGIN SIDE */
 .login-container {
   max-width: 420px;
@@ -522,7 +514,8 @@ body {
 
 
 
-/* 🧠 BRUGERPROFIL SIDE */
+
+/*============================ PROFILE PAGE ============================*/
 
 /* 👤 Avatar image + Brugerinfo box med floating effekt */
 .profile-header {
@@ -640,10 +633,9 @@ body {
 
 
 
+/*============================ TOOLS PAGE ============================*/
 
-
-
-/*===TOOLS.html===*/
+/*===General===*/
 
 .tools-wrapper {
   padding: 4rem 2rem;
@@ -711,6 +703,478 @@ body {
 
 
 
+/*Notepad*/
+.tool-card textarea {
+  width: 100%;
+  resize: vertical;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/*SPIN THE WHEEL*/
+.wheel-animation {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #ccc;
+  border-top: 6px solid #26a67d;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1080deg); }
+}
+
+
+
+/*Checklist*/
+.tool-checklist {
+  background: transparent !important;
+  border: none;
+  padding: 0.5rem 0;
+  margin-left: -15px;
+  max-width: 310px;
+  box-shadow: none;
+}
+
+.tool-checklist .task-list li {
+  align-items: center;
+  max-width: 100%;
+}
+
+.tool-checklist .input-row {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+}
+
+.tool-checklist .new-task-input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  flex: 0 1 100%;
+  min-width: 0;
+}
+
+.tool-checklist .add-task {
+  background-color: #9fe5c4;
+  color: var(--buttonText, #1b1f40);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-right: -15px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 0 0 auto;
+}
+
+.tool-checklist .add-task:hover {
+  background-color: #7ecfa9;
+}
+
+
+
+
+
+/*POMODORO*/
+.pomodoro-container {
+  position: relative;
+  width: 240px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.pomodoro-base,
+.pomodoro-hat {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  width: 100%;
+}
+
+.pomodoro-circle {
+  position: relative;
+  margin: 0 auto;
+  background-color: #4ecdc4;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(63, 4, 32, 0.707);
+  top: 15px;
+}
+
+
+.timer-label{ 
+  text-align: center; 
+  margin-top: 1.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: -1rem;
+}
+
+.timer {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0rem;
+}
+
+
+.pomodoro-btn {
+  background-color: #ff89bb;
+  border: none;
+  border-radius: 20px;
+  padding: 0.2rem 1.2rem;
+  font-weight: bold;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(60, 10, 114, 0.464);
+}
+
+.pomodoro-btn:hover {
+  background-color: #ff6ca6;
+  transform: scale(1.05);
+}
+
+.pomodoro-btn:active {
+  transform: scale(0.95);
+  background-color: #ff4d95;
+}
+
+
+.pomodoro-hat {
+  z-index: 3;
+  pointer-events: none;
+  
+}
+
+.settings-icon {
+  position: absolute;
+  bottom: -25px;
+  right: 72px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.settings-icon:hover {
+  opacity: 2;
+  transform: scale(1.2)
+}
+
+.pomodoro-settings-popup {
+  position: absolute;
+  /* ==Ved siden af uret==
+  top: 64px;
+  right: -93px;
+  
+  ==På uret==*/
+  top: 20px;
+  right: 46px;
+
+  /*Under uret
+  top: 253px;
+  right: 46px;*/
+  background: #fffaf0;
+  border: 2px solid #f0e0d6;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  z-index: 10;
+  width: 150px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.pomodoro-settings-popup label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #1b1f40;
+}
+
+.pomodoro-settings-popup input[type="number"] {
+  width: 60px;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.pomodoro-settings-popup button {
+  background-color: #ff89bb;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.2rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.pomodoro-settings-popup button:hover {
+  background-color: #ff6ca6;
+  transform: scale(1.05);
+}
+
+.audio-toggle {
+  font-weight: 500;
+  color: #1b1f40;
+  padding: 0rem 0.6rem;
+}
+
+
+
+
+
+/*============================ PROFILE PAGE ============================*/
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+
+.profile-grid section {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 1.8rem 1.6rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  height: 310px; /* juster som du vil */
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-grid .fav-hack-grid,
+.profile-grid .tool-slide-container,
+.profile-grid textarea {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/*PROFILE FAVORITE HACKS*/
+.fav-hack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden; /* 👈 stop horisontal scroll */
+  padding-right: 0.25rem;
+  padding-bottom: 2px; /* ekstra plads til hover-scale */
+}
+
+.fav-hack-card {
+ background-color: #fffaf0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  will-change: transform; /* 👈 vigtig */
+}
+
+.fav-hack-card:hover {
+  transform: scale(1.01);
+  margin-bottom: 1px; /* sikrer der er plads til skalering */
+}
+
+
+.fav-hack-card .info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.fav-hack-card img {
+  width: 36px;
+  height: 36px;
+}
+
+.fav-hack-card button.unsave-hack {
+  background: none;
+  border: none;
+  color: #d33;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.fav-hack-card button.unsave-hack:hover {
+  transform: scale(1.2);
+}
+
+
+.fav-hack-card button.unsave-hack > img.fav-heart {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+
+}
+.unsaved {
+filter: saturate(300%);
+}
+
+
+
+/*PROFIL FAVORITE TOOLS*/
+.tool-slide-container {
+  position: relative;
+}
+
+.tool-slide-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-page-wrapper {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+  will-change: transform;
+}
+
+.tool-page {
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem 2.2rem;
+  padding: 1rem 0;
+}
+
+
+.tool-icon {
+  width: 63px;
+  height: 63px;
+  background-color: #fffaf0;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: default;
+}
+
+.tool-icon img {
+  width: 90%;
+  height: auto;
+}
+
+.tool-icon::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1b1f40;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.tool-icon:hover::after {
+  opacity: 1;
+}
+
+
+
+/*PROFILE- SCROOL*/
+.scroll-dots {
+  text-align: center;
+  margin-top: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+
+.scroll-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.scroll-dots span.active {
+  background-color: #ffa94d;
+  transform: scale(1.2);
+}
+
+/*PROFILE- XP JOURNAL*/
+
+.xp-journal-section {
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem 1.5rem 1rem;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.xp-journal-scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.xp-journal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.xp-journal-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
 
 
 
@@ -719,14 +1183,130 @@ body {
 
 
 
-/* 🦶 FOOTER */
+/*============================ QUIZ ============================*/
+
+
+
+.quiz-card {
+      max-width: 800px;
+      margin: auto;
+      background: #fffdfb;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .quiz-card.fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .quiz-img {
+      max-width: 150px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .quiz-content {
+      flex-grow: 1;
+    }
+
+    .quiz-progressbar {
+      
+      max-width: 75%;
+      height: 12px;
+      background-color: #eaeaea;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+    .quiz-progressbar-fill {
+      height: 100%;
+      background-color: #26a67d;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+#quiz-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 65vh;
+  padding: 3rem 1rem 4rem;
+  text-align: center;
+}
+
+.result-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.result-wrapper:hover {
+  transform: scale(1.02);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.result-name {
+  font-size: 2rem;
+  color: #1b1f40;
+}
+
+.result-icon {
+  width: 100px;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.result-icon:hover {
+  transform: scale(1.08);
+}
+
+
+
+@media (max-width: 768px) {
+  .quiz-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .quiz-img {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  .quiz-progressbar {
+    max-width: 100%;
+  }
+
+  #quiz-options button {
+    width: 100% !important;
+  }
+}
+
+
+
+
+/*============================ 🦶 FOOTER ============================*/
 footer {
-  background-color: #f3ede5;
+  background-color: var(--card, #f3ede5);
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
   color: #1b1f40;
-  border-top: 2px solid #e0d8ce;
+  border-top: 2px solid var(--shadow,#e0d8ce);
 }
 
 footer a {
@@ -745,4 +1325,12 @@ footer a:hover {
     padding: 0.4rem 0.8rem;
     font-size: 1rem;
   }
+
+  .brain-container {
+  margin-top: 5rem;
+  margin-bottom: -4rem;
 }
+
+}
+
+
