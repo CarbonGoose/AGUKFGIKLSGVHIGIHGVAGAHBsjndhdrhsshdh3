@@ -3,97 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tools - Hack Your Brain</title>
+
+<title>Tools for Focus and Self-Care – Hack Your Brain</title>
+<meta name="description" content="Explore practical, playful and reflective productivity tools to stay focused, track your progress and care for your brain. Includes Pomodoro, To-Do lists, mood tracker, and more.">
+<meta name="author" content="HackYourBrain Team">
+
+
+<meta property="og:title" content="Tools for Focus and Self-Care – Hack Your Brain">
+<meta property="og:description" content="From Pomodoro timers to future-you letters – discover tools that help your brain stay on track while being kind to itself.">
+<meta property="og:image" content="https://goosiegoose.com/Kode/img/tools-preview.png">
+<meta property="og:url" content="https://goosiegoose.com/Kode/tools.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tools for Focus and Self-Care – Hack Your Brain">
+<meta name="twitter:description" content="Stay focused, log wins, and reflect gently. These brain-friendly tools are here to help.">
+<meta name="twitter:image" content="https://goosiegoose.com/Kode/img/tools-preview.png">
+
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-hack-template.css">
+  <link rel="icon" href="img/logo.png" type="image/png">
 </head>
+
+
+
+
 <body>
-  <nav class="navbar navbar-expand-lg shadow-sm px-3">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="frontpage.html">
-        <img src="../img/logo.png" alt="Logo" height="30" class="me-2">
-        HackYourBrain
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="../html/frontpage.html">Hacks</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#">Tools</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Quiz</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  
   <div class="tools-wrapper">
-    <h1>🧰 Tools</h1>
 
+<!--Practical Productivity--> 
     <section class="tool-section">
-      <h2>Practical Productivity</h2>
+      <h2>Practical Productivity Tools</h2>
       <div class="tool-grid">
+             
+        
         <div class="tool-card">
-          <h3>Pomodoro Timer</h3>
-          <p>25 min work / 5 min break. Track sessions and get rewarded 🎉</p>
+          <h3>Personal Notepad</h3>
+          <textarea id="tools-notepad" class="form-control" rows="6" placeholder="Write your ideas, reflections or notes here..."></textarea>
         </div>
-        <div class="tool-card">
-          <h3>Habit Tracker</h3>
-          <p>Colorful weekly overview with customizable habits like “Stretch” and “Read”.</p>
-        </div>
+
+
         <div class="tool-card">
           <h3>Daily To-Do</h3>
-          <p>Write soft, self-loving lists. Use emojis and sunshine vibes ☀️</p>
+          <div class="checklist tool-checklist" data-id="daily-tool-todo">
+            <div class="input-row">
+              <input type="text" placeholder="Write your to-do here..." class="new-task-input" />
+              <button class="add-task">Add</button>
+            </div>
+            <ul class="task-list"></ul>
+          </div>
         </div>
-        <div class="tool-card">
-          <h3>Focus Mode</h3>
-          <p>Lo-fi player, screen dimmer, and do-not-disturb overlay.</p>
-        </div>
+
+
+      <!--POMODORO-->        
+<div class="tool-card">
+  <h3>Pomodoro Timer</h3> 
+  <br>
+
+  <div class="pomodoro-container">
+    <img src="img/pomodorodyr4.png" class="pomodoro-base" alt="Pomodoro base">
+
+    <div class="pomodoro-circle">
+      <div id="timer-label" class="timer-label">Focus Time</div>
+      <div class="timer" id="timer">25:00</div>
+      <button id="startBtn" class="pomodoro-btn">Start</button>
+      <div class="settings-icon" id="openSettings">⚙️</div>
+    </div>
+
+    <img src="img/pomodorodyrhat1.png" class="pomodoro-hat" alt="Pomodoro hat">
+
+    <div class="pomodoro-settings-popup" id="settingsPopup">
+      <label>Work: <input type="number" id="workInput" value="25"></label>
+      <label>Break: <input type="number" id="breakInput" value="5"></label>
+      <button id="resetBtn">🔁 Reset</button>
+      <label class="audio-toggle">
+      🔈Audio <input type="checkbox" id="soundToggle">
+      </label>
+    </div>
+  </div>
+</div>
+  
       </div>
     </section>
+
+
+
+
+
+
+
 
     <section class="tool-section">
       <h2>Reflective / Self-Care Tools</h2>
       <div class="tool-grid">
         <div class="tool-card">
-          <h3>Mood Tracker</h3>
+          <h3>Mood Tracker <p style="color: #26a67d;">Coming Soon</p></h3>
           <p>Log your mood using icons or themes like "Goblin" or "Sunshine".</p>
         </div>
+
         <div class="tool-card">
-          <h3>Note to Future Me</h3>
+          <h3>Note to Future Me <p style="color: #26a67d;">Coming Soon</p></h3>
           <p>Write a sweet letter and have it pop up later ✉️</p>
         </div>
+
         <div class="tool-card">
-          <h3>Visual Victory Wall</h3>
+          <h3>Visual Victory Wall <p style="color: #26a67d;">Coming Soon</p></h3>
           <p>Upload moments of pride. Celebrate progress visually 💛</p>
         </div>
+
         <div class="tool-card">
-          <h3>Affirmation Generator</h3>
+          <h3>Affirmation Generator <p style="color: #26a67d;">Coming Soon</p></h3>
           <p>Pull a card with encouragement like “You’re doing amazing, sweet brain!”</p>
         </div>
       </div>
     </section>
 
+
+
+
+
+
+
     <section class="tool-section">
       <h2>Gamified & Fun Tools</h2>
       <div class="tool-grid">
+
         <div class="tool-card">
           <h3>Random Hack Spinner</h3>
-          <p>Spin the wheel! Let the Goblin pick your fate 🔮</p>
+          <br>
+          <div id="spinner-box" class="text-center">
+            <button id="spin-hack-btn" class="btn btn-success">🎡 Spin the Hack Wheel!</button>
+            <div id="spinner-result" style="margin-top: 1rem;"></div>
+          </div>
         </div>
+
+
         <div class="tool-card">
-          <h3>XP / Level Tracker</h3>
-          <p>Earn XP per hack, unlock levels and see your brain grow ⭐</p>
+          <h3>The Hack Train <p style="color: #26a67d;">Coming Soon</p></h3>
+          <p>Get a row of different hacks and try to complete them all.</p>
         </div>
+
         <div class="tool-card">
-          <h3>Mini Quiz</h3>
-          <p>Discover your brain-type today & match it with the best hacks.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Daily Challenges</h3>
+          <h3>Daily Challenges <p style="color: #26a67d;">Coming Soon</p></h3>
           <p>Mix simple tasks to jumpstart your day, like “1 hack + water 💧”.</p>
         </div>
+
       </div>
     </section>
   </div>
@@ -105,5 +161,19 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="tools.js" defer></script>
+  <script src="brain.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    insertSEO("tools");
+    insertNavbar("tools");
+    insertFooter("tools");
+  });
+</script>
+
+
+
+
+
 </body>
 </html>
