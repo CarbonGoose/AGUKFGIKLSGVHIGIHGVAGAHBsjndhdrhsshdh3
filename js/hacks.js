@@ -1,5 +1,8 @@
 // hacks.js
 
+// === LOAD & RENDER CATEGORY PAGE ===
+// Loads the selected category from URL, applies styles, generates hack cards,
+// updates progress bar, and manages badge system.
 async function loadHackPage() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
@@ -8,6 +11,21 @@ async function loadHackPage() {
   const category = data.find((c) => c.id === id);
 
   if (!category) {
+
+
+  // === Dynamic SEO updates ===
+  document.title = `${category.name} – Productivity Hacks`;
+
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute("content", category.description);
+  } else {
+    const meta = document.createElement("meta");
+    meta.name = "description";
+    meta.content = category.description;
+    document.head.appendChild(meta);
+  }
+
     document.body.innerHTML = "<h2>Ups! Kategori ikke fundet.</h2>";
     return;
   }
@@ -21,23 +39,60 @@ async function loadHackPage() {
   const list = document.querySelector("#hack-list .container");
   list.innerHTML = "";
 
-  const total = category.hacks.length;
-  const completed = 0;
-  document.getElementById("progress-fill").style.height = `${(completed / total) * 100}%`;
-  document.getElementById("progress-text").textContent = `${completed} / ${total} hacks`;
+const total = category.hacks.length;
+const logs = JSON.parse(localStorage.getItem("xpLogs") || "[]");
+const categoryPrefix = category.name.split(" ")[0]; // fx "Sunshine"
+const completed = category.hacks.filter(h =>
+  logs.some(log => log.hackTitle === h.title && log.displayName.startsWith(categoryPrefix))
+).length;
+document.querySelector(".progress-fill").style.height = `${(completed / total) * 100}%`;
+document.getElementById("progress-text").textContent = `${completed} / ${total} hacks`;
 
+
+
+// === HACK BADGE SYSTEM ===
+if (completed === total) {
+  const badges = JSON.parse(localStorage.getItem("badges") || "[]");
+  const badgeId = `badge-${category.id}`;
+  const alreadyEarned = badges.some(b => b.id === badgeId);
+
+  if (!alreadyEarned) {
+    const newBadge = {
+      id: badgeId,
+      category: category.name,
+      earnedOn: new Date().toLocaleDateString("da-DK"),
+      title: `Completed all ${category.name}`,
+      icon: category.icon
+    };
+    badges.push(newBadge);
+    localStorage.setItem("badges", JSON.stringify(badges));
+    alert(`🏅 New Badge Unlocked: ${newBadge.title}`);
+  }
+}
+//SAVE FAVORITE HACK
   const saveKey = "savedHacks";
   const savedHackTitles = JSON.parse(localStorage.getItem(saveKey)) || [];
+
+  
+function wasUsedToday(hackTitle) {
+  const logs = JSON.parse(localStorage.getItem("xpLogs") || "[]");
+  const today = new Date().toLocaleDateString("da-DK");
+  return logs.some(log => log.hackTitle === hackTitle && log.date === today);
+}
+
+
+  // === GENERATE HACK CARDS ===
 
   category.hacks.forEach((hack) => {
     const el = document.createElement("section");
     el.className = "hack-card";
 
     const howto = hack.howto
-      ? `<div class=\"hack-howto\"><strong>How to:</strong><br>${hack.howto.replace(/\n/g, '<br>')}</div>`
+      ? `<div class=\"hack-howto\"><strong>How to:</strong><div class="howto-text">${hack.howto.replace(/\n/g, '<br>')}</div>
+</div>`
       : "";
 
-    const extraContent = generateExtraContent(hack.extra);
+    const extraContent = window.generateExtraContent(hack.extra);
 
     const video = hack.video
       ? `<div class=\"right\">
@@ -59,7 +114,7 @@ async function loadHackPage() {
         ${video}
       </div>
       <div class=\"hack-footer\">
-        <button class=\"done-btn\">✅ I did it! </button>
+        <button class=\"done-btn\"> I did it! ✅ </button>
       </div>
     `;
 
@@ -81,6 +136,10 @@ async function loadHackPage() {
     const playBtn = el.querySelector(".big-play");
     const videoEl = el.querySelector("video");
     const leftContent = el.querySelector(".left");
+
+    
+    // === VIDEO HEIGHT MATCHING ===
+// Ensures video and left content block are visually aligned on larger screens
 
     function matchVideoHeight() {
       const isMobile = window.innerWidth < 768;
@@ -128,6 +187,10 @@ async function loadHackPage() {
       });
     }
 
+    
+    // === HANDLE CARD EXPAND TOGGLE ===
+// Expands or collapses extra content when card is clicked
+
     el.addEventListener("click", (e) => {
       const isInteractive = ["textarea", "button", "input", "a", "label", "img"].includes(e.target.tagName.toLowerCase()) ||
         e.target.classList.contains("save-tag") ||
@@ -136,6 +199,7 @@ async function loadHackPage() {
         e.target.closest(".checklist");
       if (isInteractive) return;
 
+      //Click on hack card opens/closes extra content (avoid click on interactive elements).
       const isOpen = extra.classList.contains("open");
       if (isOpen) {
         extra.classList.remove("open");
@@ -153,18 +217,22 @@ async function loadHackPage() {
 
     list.appendChild(el);
 
+
+    //SAVE (HEART) SYSTEM
     const saveButton = el.querySelector(".save-tag");
 
     if (savedHackTitles.includes(hack.title)) {
       saveButton.dataset.state = "saved";
       saveButton.innerHTML = `<img src=\"img/heart2.png\" alt=\"Gemt\" class=\"heart-icon\">`;
     }
-
+    
+    // 2) Click on ❤️-icon, saves/removes hack as favorite in localStorage.
     saveButton.addEventListener("click", (e) => {
       e.stopPropagation();
       const isSaved = saveButton.dataset.state === "saved";
 
-      let updatedTitles = [...savedHackTitles];
+      let updatedTitles = JSON.parse(localStorage.getItem(saveKey)) || [];
+
 
       if (isSaved) {
         saveButton.dataset.state = "unsaved";
@@ -179,69 +247,37 @@ async function loadHackPage() {
       localStorage.setItem(saveKey, JSON.stringify(updatedTitles));
     });
 
-    // === INDSÆT XP-POPUP HER ===
+
+    // === XP POPUP BUTTON ===
     const doneBtn = el.querySelector(".done-btn");
     doneBtn.addEventListener("click", () => {
       showNotePopup(hack, category); // Viser popup, sender hack + kategori-objekt
     });
 
-    // === ===
 
-    if (hack.extra && hack.extra.type === "checklist") {
-      const checklist = el.querySelector(".checklist");
-      const input = checklist.querySelector(".new-task-input");
-      const button = checklist.querySelector(".add-task");
-      const listEl = checklist.querySelector(".task-list");
-      const key = checklist.dataset.id;
 
-      const saved = JSON.parse(localStorage.getItem(key)) || [];
 
-      const render = () => {
-        listEl.innerHTML = "";
-        saved.forEach((task, i) => {
-          const li = document.createElement("li");
-          li.className = task.done ? "completed" : "";
-          li.innerHTML = `
-            <label>
-              <input type=\"checkbox\" ${task.done ? "checked" : ""}> ${task.text}
-            </label>
-            <button class=\"delete-task\" title=\"Slet\">✖</button>
-          `;
+    
+    // === HANDLE CHECKLIST ===
+ if (hack.extra && hack.extra.type === "checklist") {
+  const checklist = el.querySelector(".checklist");
+  if (checklist) renderChecklist(checklist);
+}
 
-          const checkbox = li.querySelector("input");
-          checkbox.addEventListener("change", () => {
-            saved[i].done = !saved[i].done;
-            localStorage.setItem(key, JSON.stringify(saved));
-            render();
-            if (saved[i].done) showConfetti(li);
-          });
+// === INIT POMODORO TOOL ===
+if (hack.extra && hack.extra.type === "tool" && hack.extra.toolId === "pomodoro") {
+  const pomodoro = el.querySelector(".pomodoro-container");
+  if (pomodoro) initPomodoro();
+}
 
-          li.querySelector(".delete-task").addEventListener("click", (e) => {
-            e.stopPropagation();
-            saved.splice(i, 1);
-            localStorage.setItem(key, JSON.stringify(saved));
-            render();
-          });
-
-          listEl.appendChild(li);
-        });
-      };
-
-      render();
-
-      button.addEventListener("click", () => {
-        if (input.value.trim()) {
-          saved.push({ text: input.value.trim(), done: false });
-          localStorage.setItem(key, JSON.stringify(saved));
-          input.value = "";
-          render();
-        }
-      });
-    }
   });
 }
 
-// === POPUP OG XP-FUNKTIONALITET ===
+
+
+
+// === XP NOTE POPUP ===
+// Shows popup to enter thoughts and confirm completion when user clicks "I did it!" 
 
 function showNotePopup(hack, category) {
   const popup = document.createElement("div");
@@ -263,9 +299,13 @@ function showNotePopup(hack, category) {
   popup.querySelector(".close-popup").addEventListener("click", () => popup.remove());
 
   // Event listeners til knapperne
-  popup.querySelector(".confirm-note").addEventListener("click", () => handleXPConfirm(hack, category.name));
+  popup.querySelector(".confirm-note").addEventListener("click", () => handleXPConfirm(hack, category.name ));
   popup.querySelector(".skip-note").addEventListener("click", () => handleXPConfirm(hack, category.name, true));
 }
+
+
+// === HANDLE XP LOGGING ===
+// Saves log entry with XP, username, date and optional note into localStorage
 
 function handleXPConfirm(hack, categoryName, skip = false) {
   const popup = document.querySelector(".popup-overlay");
@@ -273,62 +313,37 @@ function handleXPConfirm(hack, categoryName, skip = false) {
   const username = localStorage.getItem("username") || "User";
   const shortCategory = categoryName.split(" ")[0]; // fx "Chaos Goblin" → "Chaos"
 
+  const xpValue = hack.xp || 5;
+
   const logEntry = {
     date: new Date().toLocaleDateString("da-DK"),
     displayName: `${shortCategory} ${username}`,
     hackTitle: hack.title,
     note: note,
-    xp: 5
+    xp: xpValue
   };
 
+  
   const logs = JSON.parse(localStorage.getItem("xpLogs") || "[]");
   logs.push(logEntry);
   localStorage.setItem("xpLogs", JSON.stringify(logs));
 
   // Bonus: Gem XP
   let currentXP = parseInt(localStorage.getItem("xp") || "0");
-  localStorage.setItem("xp", currentXP + 5);
+  localStorage.setItem("xp", currentXP + xpValue);
 
   popup.remove();
   showConfetti(); // findes allerede!
 }
 
-// === ========== ===
 
-function showConfetti(target) {
-  const container = document.createElement("div");
-  container.className = "confetti";
-  document.body.appendChild(container);
 
-  for (let i = 0; i < 30; i++) {
-    const piece = document.createElement("div");
-    piece.className = "confetti-piece";
-    piece.style.left = `${Math.random() * 100}vw`;
-    piece.style.top = `${Math.random() * 30}vh`;
-    piece.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-    container.appendChild(piece);
-  }
 
-  setTimeout(() => container.remove(), 1500);
-}
 
-function generateExtraContent(extra) {
-  if (!extra) return "";
-  if (extra.type === "notepad") {
-    return `<textarea placeholder="${extra.placeholder || 'Skriv her...'}"></textarea>`;
-  }
-  if (extra.type === "checklist") {
-    const id = "checklist-" + Math.random().toString(36).substr(2, 9);
-    return `
-      <div class=\"checklist\" data-id=\"${id}\">
-        <input type=\"text\" placeholder=\"${extra.placeholder}\" class=\"new-task-input\" />
-        <button class=\"add-task\">Add</button>
-        <ul class=\"task-list\"></ul>
-      </div>
-    `;
-  }
-  return "";
-}
+// === APPLY CATEGORY STYLING ===
+// Reads styling from category JSON and sets CSS variables accordingly
+
+// === APPLY CATEGORY STYLING ===
 
 function applyCategoryStyle(style) {
   if (!style) return;
@@ -342,7 +357,54 @@ function applyCategoryStyle(style) {
   root.style.setProperty("--shadow", style.shadow);
   root.style.setProperty("--title", style.title);
   root.style.setProperty("--text", style.text);
-  root.style.setProperty("--saveTag", style.saveTag);
+  root.style.setProperty("--howtoBg", style.howtoBg);
+  root.style.setProperty("--howtoText", style.howtoText);
+  root.style.setProperty("--progressBg", style.progressBg);
+  root.style.setProperty("--saveTag", style.saveTag); //Not sure what this does anymore
+  
+  if (style.backgroundImage) {
+  document.documentElement.style.setProperty('--backgroundImage', style.backgroundImage);
 }
 
+// === OPDATES PROFILE PICTURE IN HACK HEADER ===
+const avatar = localStorage.getItem("avatar") || "img/ikon.png";
+const profileBadge = document.querySelector(".profile-badge img");
+if (profileBadge) profileBadge.src = avatar;
+
+
+// === AUTO OPEN HACK FROM HASH (Like when you open the hack from Profile) ===
+// If URL has a #title (e.g. #Fake Deadline), find the matching hack,
+setTimeout(() => {
+  const hashTitle = decodeURIComponent(window.location.hash.substring(1));
+  if (!hashTitle) return;
+
+  const allHacks = document.querySelectorAll(".hack-card");
+  const target = [...allHacks].find(card =>
+    card.querySelector("h2")?.textContent === hashTitle
+  );
+
+// open the hack, scroll to it, and expand video (if on desktop).
+  if (target) {
+    const extra = target.querySelector(".hack-extra");
+    const videoWrapper = target.querySelector(".video-wrapper");
+    const leftContent = target.querySelector(".left");
+
+    extra?.classList.add("open");
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, null, ' ');
+
+    const isMobile = window.innerWidth < 768;
+    if (videoWrapper && leftContent) {
+      if (!isMobile) {
+        videoWrapper.classList.remove("collapsed");
+        videoWrapper.style.maxHeight = leftContent.offsetHeight + "px";
+      } else {
+        videoWrapper.style.maxHeight = "none";
+      }
+    }
+  }
+}, 300);
+}
+
+// Initialize page load
 document.addEventListener("DOMContentLoaded", loadHackPage);
