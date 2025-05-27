@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brain Mode Quiz – Find Your Focus Style</title>
+<meta name="description" content="Take this fun personality quiz to discover your brain mode – from Chaos Goblin to Gentle Fairy – and unlock productivity hacks tailored to your motivation style.">
+<meta name="author" content="HackYourBrain Team">
+
+
+<meta property="og:title" content="Brain Mode Quiz – Find Your Focus Style">
+<meta property="og:description" content="Are you a Sunshine Fairy or a Discipline Daddy? Take the quiz and find out which productivity mode fits your brain best.">
+<meta property="og:image" content="https://goosiegoose.com/Kode/img/quiz-preview.png">
+<meta property="og:url" content="https://goosiegoose.com/Kode/quiz.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brain Mode Quiz – Find Your Focus Style">
+<meta name="twitter:description" content="Discover your focus style and get matched with hacks that actually work for your brain.">
+<meta name="twitter:image" content="https://goosiegoose.com/Kode/img/quiz-preview.png">
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+<body>
+
+  <main class="container py-5">
+    <section id="quiz-container" class="text-center">
+      <div class="quiz-card">
+        <img src="img/BrainFlower.png" class="quiz-img" alt="quiz illustration">
+        <div class="quiz-content text-start">
+          <h1 class="mb-4">Find Your Brain Mode</h1>
+          <div id="quiz-question" class="mb-4 fs-4 fw-semibold">Loading...</div>
+          <div id="quiz-options" class="d-flex flex-column gap-3"></div>
+          <div id="quiz-progress" class="mt-3 text-muted">Question 1 of 8</div>
+          <div class="quiz-progressbar mt-2">
+            <div id="quiz-progress-fill" class="quiz-progressbar-fill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz-result" class="text-center d-none">
+      <h2 class="mb-3">
+        <img src="img/star.png" alt="Confetti" style="height: 200px; vertical-align: middle; margin-right: 0rem;">
+        Your Brain Mode Today Is...
+      </h2>
+      <p id="result-category" class="fs-3 fw-bold"></p>
+      <br>
+      <br>
+      <button id="go-to-hacks" class="btn btn-success mt-3">Explore My Hacks</button>
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="brain.js"></script>
+  <script src="quiz.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    insertSEO("quiz");
+    insertNavbar("quiz");
+    insertFooter("quiz");
+  });
+</script>
+
+</body>
+</html>
