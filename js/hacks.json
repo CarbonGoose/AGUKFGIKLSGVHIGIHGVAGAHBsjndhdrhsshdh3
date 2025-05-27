@@ -1,117 +1,621 @@
 [
   {
+    "id": "classic",
+    "name": "Classic Hacks",
+    "description": "The good old tricks – simple, effective, and helpsome",
+    "icon": "img/classic2.png",
+    "style": {
+      "background": "#f5fbf8",
+      "backgroundImage": "url('img/brainbanner4.png')",
+      "card": "#D2F1E6",
+      "accent": "#2fa66b",
+      "button": "#c0ecd7",
+      "buttonText": "#133c2e",
+      "shadow": "rgba(47, 166, 107, 0.25)",
+      "title": "#145c45",
+      "text": "#1b1f40",
+      "progressBg": "#F6FBF9",
+      "howtoBg": "#f0f8f4",
+      "howtoText": "#1b1f40"
+    },
+    "hacks": [
+      {
+        "title": "Silent Body Double",
+        "description": "Let someone else's presence carry you.",
+        "howto": "Work next to someone – in person or online (Pomodoro livestream, Discord, YouTube).\n\nYour brain will think: 'We're working now.'",
+        "video": "video/Bodydoubling.mov",
+        "xp": 5,
+        "extra": {
+          "video": "video/Bodydoubling.mov"
+        }
+      },
+      {
+        "title": "The Classic Pomodoro Clock",
+        "description": "Stay focused with short bursts – and real breaks.",
+        "howto": "The Pomodoro technique is simple:\n⏱️ 25 minutes of focused work\n☕ 5-minute break\n🔁 Repeat 4 times → Then take a longer break\n\nIt trains your brain to focus without burnout – and feels more doable than a giant task.\n\nMake it your own:\n🎧 Add your own music\n🎮 Name each session like a quest\n🧃 Treat yourself after each round!",
+        "extra": {
+          "type": "tool",
+          "toolId": "pomodoro"
+        },
+        "xp": 7
+      },
+      {
+        "title": "Trick Your Brain with Choices",
+        "description": "Give your brain a sense of free will instead of orders.",
+        "howto": "Create a 3-item menu:\n🍽️ A) Something quick and easy\n🎨 B) Something creative or cozy\n📂 C) Something important, but doable\n\nAsking 'What do I feel like doing?' gives a sense of control – and boosts motivation.",
+        "extra": {
+          "type": "checklist",
+          "placeholder": "Write your menu here..."
+        },
+        "xp": 5
+      },
+      {
+        "title": "Fake Deadline",
+        "description": "Use time pressure – without the stress.",
+        "howto": "Set a fake deadline before the real one.\n⏰ 'I'll finish this by 15:00 – and then I get tea, snacks and 30 mins in the sun.'\n\nBonus: Tell a friend for accountability.",
+        "xp": 5
+      },
+      {
+        "title": "Make it 90% Easier",
+        "description": "Start smaller than small.",
+        "howto": "Ask yourself:\n👉 What’s the tiniest step I can do right now?\n📄 Open the file?\n✏️ Write one word?\n🧠 Title the page?\n\nAction creates momentum. Not the other way around.",
+        "xp": 5
+      },
+      {
+        "title": "The Public Timer",
+        "description": "Make time pressure feel real – with a twist.",
+        "howto": "⏰ Set a Pomodoro timer\n📱 Tell a friend: 'I'm working for 20 minutes now'\n🎥 Or join a 'study with me' livestream\n\nYour brain thinks it's a shared agreement – and that matters.",
+        "xp": 7
+      },
+      {
+        "title": "Start Ritual",
+        "description": "Train your brain to recognize ‘work mode’.",
+        "howto": "Build a ritual that signals it’s time to begin:\n🧃 A glass of juice\n🎧 A specific playlist\n📂 Opening a certain app or file\n\nWhen your ritual starts, your brain follows.",
+        "extra": {
+          "type": "notepad",
+          "placeholder": "Describe your ritual here..."
+        },
+        "xp": 6
+      },
+      {
+        "title": "Screenshot Your Progress",
+        "description": "Use visual proof to stay motivated.",
+        "howto": "Every 20–30 minutes, take a screenshot of what you’ve done.\n🖼️ Save it in a folder called 'Proof of Progress'\n🎁 Watch your work grow – and feel proud.",
+        "xp": 5
+      }
+    ]
+  },
+
+
+
+  {
     "id": "sunshine",
     "name": "Sunshine Hacks",
     "description": "Welcome to dopamine land!",
     "icon": "img/sunshine.png",
     "style": {
       "background": "#fff9e5",
+      "backgroundImage": "url('img/disaster8.png')",
       "card": "#fff3c4",
       "accent": "#f6a400",
       "button": "#ffe278",
       "buttonText": "#1b1f40",
       "shadow": "rgba(249, 160, 63, 0.3)",
       "title": "#e57c00",
-      "text": "#1b1f40"
-      
+      "text": "#1b1f40",
+      "progressBg": "#FFF9EC",
+      "howtoBg": "#fff5dc",
+      "howtoText": "#1b1f40"
     },
-"hacks": [
-  {
-    "title": "Joy-Starter",
-    "description": "Start with the fun part – not the hard one.",
-    "howto": "Skip the struggle and begin with a part of the task you’re excited about: 🖊️ The creative bit, 📸 a chill brainstorm, or ✅ something you can finish quickly. When you start with joy, your brain kicks into flow – and pulls the rest with it.",
-    "video": "img/placeholder.mp4"
+    "hacks": [
+      {
+        "title": "Gentle To-do List",
+        "description": "Write your to-do list like your best friend would.",
+        "howto": "Try this format: 'Hey darling, here are a few things you *might* try today 💛'\n\nUse emojis, colors, and kind words. Ditch the bossy voice – unless that’s your vibe. (If so, check out the Dark Hacks 💀)",
+        "video": "video/Sunshinehacks.mov",
+        "extra": {
+          "type": "checklist",
+          "placeholder": "Write your to-do here..."
+        },
+        "xp": 5
+      },
+      {
+        "title": "Joy-Starter",
+        "description": "Start with the fun part – not the hard one.",
+        "xp": 8,
+        "howto": "Skip the struggle and begin with something you actually feel like doing:\n🖊️ Dive into the creative bits\n📸 Try a soft brainstorm\n✅ Pick a task you can finish quickly\n\nWhen joy leads the way, your brain slips into flow – and the rest will follow."
+      },
+      {
+        "title": "Reward Ritual",
+        "description": "Task → Reward → Dopamine Party 🎉",
+        "howto": "Sprinkle rewards between your steps:\n🥤 Iced coffee\n💃 A dance break\n🍪 A cozy snack\n📱 One juicy reel\n\nMake progress feel like a celebration – not a punishment!",
+        "xp": 6
+      },
+      {
+        "title": "Aesthetic Workspace Mode",
+        "description": "Create a vibe your brain wants to stay in.",
+        "howto": "Turn your setup into a ritual:\n🕯️ Light a candle\n🎥 Play a 'study with me' video\n🛋️ Add a soft blanket\n🎶 Put on some lo-fi tunes\n\nThe more inviting it feels, the easier it is to begin.",
+        "extra": {
+          "type": "notepad",
+          "placeholder": "How will you make your space cozy today?"
+        },
+        "xp": 5
+      },
+      {
+        "title": "Visual Victory Wall",
+        "description": "Capture your wins and build digital confidence.",
+        "howto": "Make a folder – or use your notes app. Every time you do something awesome, add a screenshot, quote, or photo.\n\nYou’re collecting proof of your progress 💪",
+        "xp": 5
+      },
+      {
+        "title": "Future-You Letter",
+        "description": "A gentle message to your tomorrow self.",
+        "howto": "Write something short and sweet:\n✉️ 'Thank you for today. You showed up. That matters.'\n\nFuture-you will love you for it.",
+        "extra": {
+          "type": "notepad",
+          "placeholder": "Write a message to yourself for tomorrow..."
+        },
+        "xp": 5
+      },
+      {
+        "title": "Make It Pleasurable Strategy",
+        "description": "Make it so nice that you forget it’s 'work'.",
+        "howto": "Decorate your notes, eat something nice, use your favorite colors. Savor the process like a cozy hobby.\n\nWhen it feels good, motivation sticks around.",
+        "xp": 5
+      }
+    ]
   },
   
+
+
   {
-    "title": "Gentle To-do List",
-    "description": "A soft to-do list that speaks to you like your own best friend.",
-    "howto": "Write your list like a loving letter: 'Hey darling, here are some things you could try today 💛' Use emojis, colors, and kind words. Avoid the 'YOU MUST NOW'-tone – unless that works for you, then check out the Dark Hacks 💀",
-    "video": "img/placeholder.mp4",
-    "extra": {
-      "type": "checklist",
-      "placeholder": "Write your to-do here..."
-    }
+    "id": "discipline",
+    "name": "Discipline Daddy Hacks",
+    "description": "No feelings. Just focus. Just finish.",
+    "icon": "img/discipline1.png",
+    "style": {
+      "background": "#eef3fa",
+      "backgroundImage": "url('img/disciplinbanner2.png')",
+      "card": "#d3e1f4",
+      "accent": "#3c74d6",
+      "button": "#b7d4f9",
+      "buttonText": "#0e1f36",
+      "shadow": "rgba(60, 116, 214, 0.25)",
+      "title": "#1f3e70",
+      "text": "#1b1f40",
+      "progressBg": "#F0F4FB",
+      "howtoBg": "#f3f8ff",
+      "howtoText": "#1b1f40"
+    },
+    "hacks": [
+      {
+        "title": "Boss Mode Timer",
+        "description": "Forget Pomodoro. This is elite mode.",
+        "howto": "Set a structure:\n⏱️ 45 min deep work\n☕ 10 min break\n🔁 Repeat x3\n🛌 Big break after round 3\n\nSet an alarm. No distractions. You’re in the zone.",
+        "video": "video/Deciplinehacks1.mov",
+        "xp": 7
+      },      
+      {
+        "title": "Time Blocking Supreme",
+        "description": "If it’s not scheduled, it doesn’t exist.",
+        "howto": "Plan your day with precision:\n📅 What you’ll do\n🕒 When you’ll do it\n⏳ For how long\n\nAdd it to your calendar, give it colors, name it 'Operation Focus'. Become your own manager.",
+        "xp": 5
+      },
+      {
+        "title": "Eisenhower Matrix",
+        "description": "Prioritize like a military strategist.",
+        "howto": "Quick-scan your tasks:\n🔥 Urgent & important → Do now\n🌱 Important but not urgent → Schedule\n🚨 Urgent but not important → Delegate\n🧹 Neither → Delete. Cold and clean.\n\nNo room for chaos. Only execution.",
+        "xp": 5
+      },
+      {
+        "title": "Bite the Frog",
+        "description": "Start with the hardest task. Always.",
+        "howto": "Do the thing you dread first.\n'If you must eat a frog, eat it in the morning.'\n\nIt clears your mind and builds discipline.",
+        "xp": 9
+      },
+      {
+        "title": "Brutal Accountability",
+        "description": "Make it real – or pay the price.",
+        "howto": "Tell someone what you're doing today.\nSet a deadline.\nSend proof.\nGet praise – or face shame 😌\n\nOr write it like a pact: 'I will finish this today. Or do the dishes at 11 PM – with a toothbrush.'",
+        "xp": 5
+      },
+      {
+        "title": "Tracking is Power",
+        "description": "You can’t improve what you don’t measure.",
+        "howto": "Track:\n⏳ How long you worked\n✅ What you completed\n🧠 How you felt after\n\nMake it a game: 'Can I beat yesterday’s score?'",
+        "xp": 5
+      },
+      {
+        "title": "Pay First, Play Later",
+        "description": "Dopamine is a reward. Not a starter pack.",
+        "howto": "No fun until one task is done:\n❌ No TikTok\n❌ No snacks\n❌ No scrolling\n\nFinish one thing – then enjoy the hit 💥",
+        "xp": 5
+      },
+      {
+        "title": "The Ritual of Ready",
+        "description": "Create a sacred launch sequence.",
+        "howto": "Before you start:\n🧹 Clear your desk\n🎧 Start focus music\n💻 Only open what you need\n📝 Write 'Let’s go' on a sticky note\n\nThen: fingers on keys. No mercy. Just momentum.",
+        "xp": 6
+      }
+    ]
   },
+
+
+
   {
-    "title": "Reward Ritual",
-    "description": "Task → Reward → Dopamine party",
-    "howto": "Place small rewards after each step: 🥤 Iced coffee, 💃 a dance, 🍪 a snack, 📱 a reel. Make it a celebration – not a punishment!"
+    "id": "chaos",
+    "name": "Chaos Goblin Hacks",
+    "description": "For chaotic brains with chaos hearts.",
+    "icon": "img/chaos.png",
+    "style": {
+  "background": "#f6f2fc",
+  "backgroundImage": "url('img/chaosbanner3.png')",
+  "card": "#e8defa",
+  "accent": "#985edb",
+  "button": "#d6c4f0",
+  "buttonText": "#2f1a4f",
+  "shadow": "rgba(152, 94, 219, 0.25)",
+  "title": "#582b84",
+  "text": "#1c1433",
+  "progressBg": "#f3edfa",
+  "howtoBg": "#f4edfb",
+  "howtoText": "#1c1433"
+    },
+    "hacks": [
+      {
+        "title": "Chaos Combo",
+        "description": "Multitask? No. Chaos-combo.",
+        "howto": "Pick 2–3 wildly different mini-tasks:\n🧽 Start the dishwasher\n✍️ Write an Insta caption\n🏋️ 10 squats between sentences\n\nYour brain thinks it’s wild – but you’re actually making micro-progress.",
+        "video": "video/GoblinHack4.mov",
+        "xp": 6
+      },      
+      {
+        "title": "Task Shuffle",
+        "description": "Let fate choose your to-do.",
+        "howto": "Write each task on a sticky note. Throw them in a bowl or a hat.\n🎲 Pull one. Do it. Repeat.\n\nUnpredictability = dopamine = goblin focus.",
+        "xp": 6
+      },
+      {
+        "title": "Dice of Destiny 🎲",
+        "description": "Let the dice rule your fate.",
+        "howto": "Make a list of 6 tasks for today:\n1️⃣ Answer emails\n2️⃣ Pick up 5 things\n3️⃣ 10 min of design\n4️⃣ One boring task\n5️⃣ Movement break\n6️⃣ Fun/optional task\n\nRoll the dice – and obey. 'The goblin gods have spoken.'",
+        "xp": 5
+      },
+
+      {
+        "title": "7-Minute Brain Party",
+        "description": "Like TikTok, but productive.",
+        "howto": "Set a timer for 7 minutes.\n🚨 When it ends: take a break.\nThen: new task, new 7 min.\n\nIt’s quick, chaotic – and somehow, things get done.",
+        "xp": 5,
+        "extra": {
+          "type": "tool",
+          "toolId": "pomodoro"
+        }
+      },
+      {
+        "title": "The Hat Hack",
+        "description": "Become your goblin work-self.",
+        "howto": "Put on a 'work mode' item:\n🎩 A silly hat\n🕶️ Sunglasses\n🧣 Big sweater\n💄 Red lipstick\n\nNow you’re *Boss Goblin You*. She has deadlines... and snacks.",
+        "xp": 5
+      },
+      {
+        "title": "Dopamine Menu",
+        "description": "Press the fun button – after effort.",
+        "howto": "Make a list of rewards:\n🎧 1 song\n😹 3 minutes of memes\n🐶 Pet the pet\n🥤 Open a soda\n\nBut only *after* a task. Tap the dopamine like a vending machine.",
+        "xp": 5
+      },
+      {
+        "title": "Pretend You're a Character",
+        "description": "Who are you today?",
+        "howto": "You're not you.\n🧑‍🎤 You’re a rogue artist escaping capitalism\n🤖 A robot assistant on a task mission\n💻 A 90’s hacker with a funky soundtrack\n\nUse a new voice. Narrate your moves. Step into character = step into flow.",
+        "xp": 5
+      },
+      {
+        "title": "The Chaos Route",
+        "description": "When structure fails, flip the script.",
+        "howto": "Create a day of anti-routine:\n❌ Plan nothing\n🎲 Pull random tasks\n📍 Change location every hour\n🍳 Eat breakfast at dinner\n\nWhen the world feels new, work feels like play.",
+        "xp": 6
+      }
+    ]
   },
+
+
+
   {
-    "title": "Aesthetic Workspace Mode",
-    "description": "Create a space your brain wants to stay in.",
-    "howto": "Build a cozy setup ritual: 🕯️ Light a candle, 🎥 start a 'study with me' video, 🛋️ throw out a blanket, 🎶 play lo-fi. Make your space inviting, and your brain will follow.",
-    "extra": {
-      "type": "notepad",
-      "placeholder": "How will you make your space cozy today?"
-    }
+    "id": "gentle",
+    "name": "Gentle Hacks",
+    "description": "Soft motivation for tired brains and tender hearts.",
+    "icon": "img/gentle1.png",
+    "style": {
+      "background": "#fef8f9",
+      "backgroundImage": "url('img/gentlebanner2.png')",
+      "card": "#ffeef3",
+      "accent": "#f48fb1",
+      "button": "#ffdae4",
+      "buttonText": "#3f1b2b",
+      "shadow": "rgba(244, 143, 177, 0.3)",
+      "title": "#c0547d",
+      "text": "#1b1f40",
+      "progressBg": "#f7c8d8",
+      "howtoBg": "#f6dbe5",
+      "howtoText": "#3f1b2b"
+    },
+    "hacks": [
+      {
+        "title": "The Gentle Letter",
+        "description": "Talk to yourself like a friend would.",
+        "howto": "Write a note to yourself:\n'Hey sweetie. I know today is hard. Let’s start soft. We'll do what matters – and if not, that's okay too. I'm proud of you just for being here.'\n\nRead it aloud. Yes, it’s awkward. Yes, it helps. 😌",
+        "xp": 5
+      },
+      {
+        "title": "Low-Effort / High-Comfort List",
+        "description": "Only soft, gentle tasks allowed.",
+        "howto": "Examples:\n🫖 'Open the doc and just look at it'\n🍵 'Make tea and breathe'\n📝 'Plan without pressure'\n\nTiny steps count. You’re creating momentum with kindness.",
+        "xp": 5
+      },
+      {
+        "title": "Comfort Uniform",
+        "description": "Dress for coziness – not performance.",
+        "howto": "Put on your softest clothes. Fuzzy socks. Warm drink. Candles. Lo-fi playlist.\n\nYou work best when you feel safe and warm 🧣🐻",
+        "xp": 5
+      },
+      {
+        "title": "Cozy Co-Working",
+        "description": "You’re not alone – even when you are.",
+        "howto": "Try a livestream:\n📺 'Study with me'\n☕ 'Slow café ambience'\n🏡 'Cozy productivity room'\n\nIt’s a community vibe, without leaving your blanket fort.",
+        "xp": 5
+      },
+      {
+        "title": "The Care Day Planner",
+        "description": "Heart-first productivity.",
+        "howto": "Ask: 'What would feel *good* for me today?'\nInclude:\n💆‍♀️ Self-care (food, rest, peace)\n⏳ Micro-focus (short, kind work)\n🎁 Reward (comforting treats)\n\nIt still counts – it just starts with love.",
+        "xp": 5
+      },
+      {
+        "title": "Tiny Moves & Sensory Start",
+        "description": "Begin the day without pressure.",
+        "howto": "Try this:\n🛏️ Make your bed\n🌬️ 3 deep breaths\n🌸 A scent you love (lavender, citrus...)\n\nLet your senses lead the way before your brain even boots up.",
+        "xp": 5
+      },
+      {
+        "title": "The ‘That’s Still Something’ Rule",
+        "description": "Everything counts. Everything.",
+        "howto": "Opened your laptop? That’s something.\nThought about a task? That’s something.\nSat down, ready-ish? That’s definitely something.\n\nYou’re allowed to cheer for that. It’s enough today 💞",
+        "xp": 5
+      }
+    ]
   },
+
+
+
   {
-    "title": "Visual Victory Wall",
-    "description": "Document your wins and build digital confidence",
-    "howto": "Create a folder for screenshots, photos, or quotes. Every time you succeed – drop it in there. You’re building your own proof of how awesome you really are 💪"
+    "id": "dark",
+    "name": "Dark Hacks",
+    "description": "Existential panic and raw truths as motivation... 👀",
+    "icon": "img/dark.png",
+    "style": {
+      "background": "#f5f3f0",
+      "backgroundImage": "url('img/darkbanner1.png')",
+      "card": "#e5ded9",
+      "accent": "#d35400",
+      "button": "#ffb088",
+      "buttonText": "#3b1900",
+      "shadow": "rgba(211, 84, 0, 0.25)",
+      "title": "#7b2c1e",
+      "text": "#1b1f40",
+      "progressBg": "#c15c2f",
+      "howtoBg": "#fef2e8",
+      "howtoText": "#3b1900"
+    },
+    "hacks": [
+      {
+        "title": "Memento Mori Method",
+        "description": "You will die. Let that sink in.",
+        "howto": "Ask yourself:\n'Is this how I want to spend the only life I get?'\n\nWrite 'Memento Mori' on post-its in gothic font. Stick them everywhere. It’s haunting – and effective.",
+        "xp": 5
+      },
+      {
+        "title": "Time is Running Out",
+        "description": "Turn on a dramatic countdown.",
+        "howto": "Use a death-clock app or intense timer.\n🎵 Add classical music or dystopian sci-fi ambience.\nTell yourself: 'You have 45 minutes left. Use them wisely.'",
+        "xp": 5,
+        "extra": {
+          "type": "tool",
+          "toolId": "pomodoro"
+        }
+      },
+      {
+        "title": "Parallel Universe Version",
+        "description": "Channel the version of you who already did it.",
+        "howto": "Imagine the you who followed through.\nThey made it happen. They changed their life.\nAsk: 'What would they do right now?'\nNow go do it – for them. Not for you.",
+        "xp": 5
+      },
+      {
+        "title": "The Cold Truth Session",
+        "description": "Look the consequences in the eye.",
+        "howto": "Ask yourself:\n- What happens if I never do this?\n- What will I miss out on?\n- Who do I become if I never start?\nWrite it down. Stare at it. Let it haunt you until inaction becomes unbearable.",
+        "xp": 9
+      },
+      {
+        "title": "Villain Arc Activation",
+        "description": "Unleash your inner anti-hero.",
+        "howto": "'People think I’m lazy? WATCH ME.'\nPut on dark music. Brew vengeance-coffee. Plan your day like a tactical strike.\nDo it for the drama. For the aesthetic. For the glorious revenge arc.",
+        "xp": 5
+      },
+      {
+        "title": "The Gravestone Ritual",
+        "description": "Finish the task to honour your fallen self.",
+        "howto": "Write your name + task on an imaginary gravestone.\nComplete it in memory of the version of you who didn’t make it.",
+        "xp": 6
+      },
+      {
+        "title": "Abyss Motivation",
+        "description": "Let the weight of time move you.",
+        "howto": "Reflect:\n- How fast time moves\n- What’s truly at stake\n- What you’ll regret if you don’t act today\n\nThen act – so Future You says: 'Thank god I did it,' not: 'Why the hell didn’t I?'",
+        "xp": 5
+      }
+    ]
   },
+
+
+
   {
-    "title": "Future-You Letter",
-    "description": "Send love to your future self",
-    "howto": "Write a short message for tomorrow: 'Thank you for doing it today. You helped us move forward.'",
-    "extra": {
-      "type": "notepad",
-      "placeholder": "Write a message to yourself for tomorrow..."
-    }
+    "id": "gamified",
+    "name": "Gamified Hacks",
+    "description": "For those who live for levels, lore and loot.",
+    "icon": "img/gamified1.png",
+    "style": {
+      "background": "#e3f7fa",
+      "backgroundImage": "url('img/gamifiedbanner.png')",
+      "card": "#b6e1e9",
+      "accent": "#0F8EA1",
+      "button": "#5bd1df",
+      "buttonText": "#002629",
+      "shadow": "rgba(0, 131, 143, 0.3)",
+      "title": "#003c44",
+      "text": "#102a30",
+      "progressBg": "#f7ffff",
+      "howtoBg": "#f7ffff",
+      "howtoText": "#003438"
+    },
+    "hacks": [
+      {
+        "title": "Daily Quest Scroll",
+        "description": "Each day is a new campaign.",
+        "howto": "Start your day by writing 1–3 quests:\n📜 'Open the portal (aka open the doc)'\n⚔️ 'Battle the admin beast (emails)'\n💎 'Recover lost artifact (old notes)'\n\nName them. Frame them. Slay them.",
+        "xp": 8
+      },
+      {
+        "title": "Mini-Boss Battles",
+        "description": "Every hard task is a dragon to slay.",
+        "howto": "Pick your hardest task today – that’s your boss fight.\nStart a 25 min battle.\n💥 Use full focus.\n🏆 Reward: potion (snack), victory dance, rest.",
+        "xp": 8
+      },
+      {
+        "title": "Equip Before Battle",
+        "description": "Prepare your tools like a real adventurer.",
+        "howto": "Gear up with:\n🎧 Headphones (sound magic)\n📓 Notebook (spellbook)\n🧪 Elixir (coffee/tea)\n💡 Atmosphere (vibe lighting)\n\nWhen equipped, you’re in character.",
+        "xp": 5
+      },
+      {
+        "title": "Bonus Quests & Side Missions",
+        "description": "Little wins = big momentum.",
+        "howto": "Examples:\n🪴 Water plants\n💌 Send kind message\n🗂️ Sort your desk\n\nAdd XP, gain confidence, feel cozy.",
+        "xp": 8
+      },
+      {
+        "title": "Glitch Awareness Protocol",
+        "description": "You’re inside the code.",
+        "howto": "Sit down and tell yourself:\n'Everything is a simulation. I write code with every action.'\nYou are bending the system.\nYou are awake. 👁️",
+        "xp": 5
+      },
+      {
+        "title": "Operator Mode",
+        "description": "Rebel from inside the system.",
+        "howto": "💾 Boot sequence:\n1. Turn on screen\n2. Open document\n3. Ask: 'What would the real me do now?'\nType. Act. Override the hesitation algorithm.",
+        "xp": 5
+      },
+      {
+        "title": "Skill Tree Tracker",
+        "description": "Track your progress like a true RPG hero.",
+        "howto": "Make a skill tree:\n🧠 '10 min focus'\n😤 'Do something uncomfortable'\n📐 'Make structure'\nEach completed node = upgrade unlocked.",
+        "xp": 5
+      },
+      {
+        "title": "Debug Mode",
+        "description": "If it’s not working, it's not you. It's the system.",
+        "howto": "Ask:\n🛠️ Is the plan broken?\n🔋 Am I low on sleep, food, energy?\n🧹 Is the visual clutter blocking me?\n\nPatch it. Try again. You are not the bug.",
+        "xp": 5
+      },
+      {
+        "title": "Red Pill Routine",
+        "description": "Wake up from the scroll illusion.",
+        "howto": "Each morning, choose:\n🔵 Blue pill = autopilot, escape, scroll\n🔴 Red pill = agency, focus, action\nYou choose. You always choose.",
+        "xp": 5
+      },
+      {
+        "title": "Enchanted Notes",
+        "description": "Add magic to your workspace.",
+        "howto": "Make your notes look like spell scrolls:\n🌟 Use colors, flourishes, symbols\n📖 Title your to-dos like quests: 'Defeat Inbox Dragon'\n🎨 Bonus: draw progress runes in the margins.",
+        "xp": 5
+      },
+      {
+        "title": "Level-Up Reflection",
+        "description": "Look back – and gain XP.",
+        "howto": "End of day:\n🪞 'What did I complete?'\n🧠 'What skill did I train?'\n🎁 'What reward did I earn?'\n\nAcknowledge your growth. Log it like a hero journal.",
+        "xp": 5
+      }
+    ]
   },
+
+
+
   {
-    "title": "Make It Pleasurable Strategy",
-    "description": "Make the process so enjoyable you forget it's 'work'.",
-    "howto": "Make your notes pretty, read with snacks, use colors and savor the moment. When work feels like cozy tinkering, it becomes something you actually look forward to."
+    "id": "meta",
+    "name": "Meta Hacks",
+    "description": "Mindfulness, reflection, and deeper purpose.",
+    "icon": "img/meta12.png",
+    "style": {
+      "background": "#edf7f6",
+      "backgroundImage": "url('img/metabanner1.png')",
+      "card": "#d9efed",
+      "accent": "#3d9c93",
+      "button": "#a6ded7",
+      "buttonText": "#1b1f40",
+      "shadow": "rgba(61, 156, 147, 0.3)",
+      "title": "#2b605a",
+      "text": "#1b1f40",
+      "progressBg": "#F9FDFC",
+      "howtoBg": "#f3fbfa",
+      "howtoText": "#1b1f40"
+    },
+    "hacks": [
+      {
+        "title": "Why Ritual",
+        "description": "Ask yourself why – before you begin.",
+        "howto": "Take 1–2 minutes and ask:\n'Why does this matter to me?'\n'How does it connect to the person I want to become?'\n\nLet the answer light a fire within you – not just an external obligation 🔥",
+        "xp": 6
+      },
+      {
+        "title": "Journaling to the Core",
+        "description": "Write your way to clarity and calm.",
+        "howto": "Set a timer for 5 minutes. Reflect:\n🖊️ 'What would it mean to succeed at this?'\n😟 'What fear is leading me right now?'\n💗 'What would the most self-loving version of me do today?'\n\nWrite freely. Let the truth guide you.",
+        "xp": 5,
+        "extra": {
+          "type": "tool",
+          "toolId": "pomodoro"
+        }
+      },
+      {
+        "title": "Mindful Breathing (2-Min Hack)",
+        "description": "Start from presence, not pressure.",
+        "howto": "Close your eyes.\nInhale 4 sec → Hold 4 sec → Exhale 6 sec.\nRepeat for 2 minutes.\n\nThink: 'I’m here. I’m starting. That’s enough.'",
+        "xp": 5
+      },
+      {
+        "title": "Intention Before Action",
+        "description": "Let a sentence guide your session.",
+        "howto": "Write one sentence:\n🧭 'Today, I’ll work with focus and self-respect.'\n🌱 'I don’t need to do everything – just take a step.'\n💡 'I choose to be present.'\n\nStick it to your screen or hand. Let it lead instead of your to-do tyrant.",
+        "xp": 5
+      },
+      {
+        "title": "Fear or Resistance?",
+        "description": "Understand what’s holding you back.",
+        "howto": "Ask yourself:\n'Is this fear or just resistance?'\nFear = self-doubt, perfectionism, identity\nResistance = boredom, fatigue, overwhelm\n\nOnce you name it, you can meet it honestly – and move gently forward.",
+        "xp": 7
+      },
+      {
+        "title": "Life Zoom-Out",
+        "description": "Consult your future self.",
+        "howto": "Imagine your future self, 10 years ahead, looking back at today:\n💭 'What would they wish I did?'\n💖 'What would make them proud?'\n\nWrite that. Then do one tiny thing in that direction.",
+        "xp": 7
+      },
+      {
+        "title": "Just Being Here Is Enough",
+        "description": "The most radical hack of all.",
+        "howto": "You are already worthy – before doing anything.\nAnything you do today is just a beautiful bonus to your existence 💗",
+        "xp": 5
+      }
+    ]
   }
 ]
-    }
-  
-  ,
-    {
-      "id": "chaos",
-      "name": "Chaos Goblin",
-      "description": "Der er et system... måske. Who cares? LET’S GOOO!",
-      "icon": "img/chaos.png",
-      "color": "#FFCCE8",
-      "hacks": [
-        {
-          "title": "Goblin burst",
-          "description": "Sæt en timer og løb derudaf i kaos!"
-        },
-        {
-          "title": "Random wheel",
-          "description": "Spind et hjul og gør det, den siger"
-        }
-      ]
-    },
-    {
-      "id": "dark",
-      "name": "Dark Mode Hacks",
-      "description": "Eksistentiel panik og mortalitet som brændstof... 👀",
-      "icon": "img/dark.png",
-      "style": "style-hack-template.css",
-      "hacks": [
-        {
-          "title": "Doom Timer",
-          "description": "Sæt en nedtælling som om du kun har 10 minutter tilbage på Jorden. Go."
-        },
-        {
-          "title": "Gravstenen",
-          "description": "Skriv dit navn og en opgave på en imaginær gravsten. Nu gør du den færdig for at hædre den faldne version af dig selv."
-        },
-        {
-          "title": "Mortality Motivator",
-          "description": "Se på uret og husk: tiden går. Brug den. NU."
-        },
-        {
-          "title": "Katastrofe-visualisering",
-          "description": "Forestil dig konsekvensen af at *ikke* handle – og brug det som benzin. 💣"
-        }
-      ]
-    }
-        
-  ]
-  
