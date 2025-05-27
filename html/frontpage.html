@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Hack Your Brain</title>
+  <!--SEO-->
+  <title>How to Hack Your Brain – Gamify Your Productivity</title>
+  <meta name="description" content="Take the quiz to discover your brain mode and unlock productivity hacks tailored to your motivation style – from Chaos Goblin to Gentle Fairy.">
+
+<meta name="author" content="HackYourBrain Team">
+<meta property="og:title" content="How to Hack Your Brain">
+<meta property="og:description" content="Explore gamified hacks and self-kind tools to stay motivated, focused, and kind to your brain.">
+<meta property="og:image" content="https://goosiegoose.com/Kode/img/websitepreview.png">
+<meta property="og:url" content="https://goosiegoose.com/Kode/frontpage.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Hack Your Brain">
+<meta name="twitter:description" content="Gamified brain hacks and gentle tools for productivity.">
+<meta name="twitter:image" content="https://goosiegoose.com/Kode/img/websitepreview.png">
+
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo.png" type="image/png">
+
 </head>
 
 
@@ -19,25 +36,26 @@
     <div class="row align-items-center">
       <div class="col-md-7 text-md-start text-center">
         <h1>MOTIVATION<br><span class="sub">For Your Brain</span></h1>
-        <p>What's hack-mode today?</p>
+        <p>What's your hack-mode today?</p>
         <div class="quiz-buttons d-flex justify-content-md-start justify-content-center gap-3">
-          <a href="#" class="btn btn-success">Take the quiz</a>
-          <a href="#" class="btn btn-outline-success">Look for Tools</a>
+          <a href="quiz.html" class="btn btn-success">Take the quiz</a>
+          <a href="tools.html" class="btn btn-outline-success">Look for Tools</a>
         </div>
-        <div class="level-bar mt-4">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="level-label mt-2 d-flex justify-content-between">
-            <span>Day 210</span>
-            <span>LVL. 69</span>
-          </div>
-        </div>
+<div class="level-bar mt-4">
+  <div class="progress rounded-pill" style="height: 16px;">
+    <div class="progress-bar bg-gradient-orange" id="xp-bar-front" role="progressbar" style="width: 0%;"></div>
+  </div>
+  <div class="level-label mt-2 d-flex justify-content-between">
+    <strong>Level <span id="user-level-front">1</span></strong>
+    <span id="xp-text-front">0 XP out of 300 XP</span>
+  </div>
+</div>
+
       </div>
       <div class="col-md-5 text-center mt-4 mt-md-0">
         <div class="brain-container position-relative">
-          <img src="img/hjerne7.1.png" class="brain-img" alt="Hjerne illustration">
-          <img src="img/hjerne7.2.png" class="brain2-img" alt="Hjerne platform">
+          <img src="img/hjerne7.1.png" class="brain-img" alt="Brain illustration">
+          <img src="img/hjerne7.2.png" class="brain2-img" alt="Brain platform">
         </div>
       </div>
       
@@ -59,16 +77,18 @@
   </section>
   
 
-  <section class="categories container">
+  <section id="hacks-section" class="categories container">
     <div class="row g-4">
     
       <!-- Hack kort -->
       <div class="col-12 col-sm-6 col-lg-3">
+        <a href="hack.html?id=classic" class="category-link">
         <div class="category-card classic">
-          <img src="img/classic.png" alt="Classic" class="category-img">
+          <img src="img/classic2.png" alt="Classic" class="category-img">
           <h3>Classic</h3>
           <p class="category-desc">The good old tricks – simple, effective, and helpsome</p>
         </div>
+      </a>
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
@@ -83,27 +103,33 @@
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
+        <a href="hack.html?id=discipline" class="category-link">
         <div class="category-card discipline">
-          <img src="img/discipline.png" alt="Discipline" class="category-img">
+          <img src="img/discipline1.png" alt="Discipline" class="category-img">
           <h3>Discipline</h3>
           <p class="category-desc">Structure, schedules og no-nonsense. For you who needs tough love</p>
         </div>
+      </a>
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
+        <a href="hack.html?id=chaos" class="category-link">
         <div class="category-card chaos">
-          <img src="img/chaos.png" alt="Chaos" class="category-img">
+          <img src="img/chaos1.png" alt="Chaos" class="category-img">
           <h3>Chaos Goblin</h3>
           <p class="category-desc">There's system… maybe… who cares?! LET'S GOOO!</p>
         </div>
+      </a>
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
+        <a href="hack.html?id=gentle" class="category-link">
         <div class="category-card gentle">
-          <img src="img/gentle.png" alt="Gentle" class="category-img">
+          <img src="img/gentle1.png" alt="Gentle" class="category-img">
           <h3>Gentle</h3>
           <p class="category-desc">Soft and gentle motivation for tough days and tired brains </p>
         </div>
+      </a>
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
@@ -117,38 +143,38 @@
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
+        <a href="hack.html?id=gamified" class="category-link">
         <div class="category-card gamified">
-          <img src="img/gamified.png" alt="Gamified" class="category-img">
+          <img src="img/gamified1.png" alt="Gamified" class="category-img">
           <h3>Gamified</h3>
           <p class="category-desc">Work like a RPG-character – XP, quests, levels and potions</p>
         </div>
+      </a>
       </div>
 
       <div class="col-12 col-sm-6 col-lg-3">
+        <a href="hack.html?id=meta" class="category-link">
         <div class="category-card meta">
-          <img src="img/meta.png" alt="Meta" class="category-img">
+          <img src="img/meta12.png" alt="Meta" class="category-img">
           <h3>Meta</h3>
           <p class="category-desc">Mindfulness and reflection. <br> Write yourself into a flow.</p>
         </div>
+        </a>
       </div>
     </div>
   </section>
   
 
-  <footer>
-    <a href="#">Om os</a> | 
-    <a href="#">Kontakt</a> | 
-    <a href="https://github.com/">GitHub</a>
-  </footer>
-
-
-
 <!--BOOTSTRAP OG JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="main.js"></script>
+<script src="frontpage.js"></script>
 <script src="brain.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", () => insertNavbar("frontpage"));
+  document.addEventListener("DOMContentLoaded", () => {
+    insertSEO("frontpage");   // eller "profile", "tools", osv.
+    insertNavbar("frontpage");
+    insertFooter("frontpage");
+  });
 </script>
 
 
